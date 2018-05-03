@@ -7,12 +7,12 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="{{ URL::to('src/css/app.css') }}">
+    <link rel="stylesheet" href="{{ URL::to('src/css/app.css') }}">
     @yield('styles')
 </head>
 <body>
+@include('partials.header')
     <div class="container">
-        <p>This is a test</p>
         @yield('content')
     </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
