@@ -8,11 +8,26 @@
     display:flex;
 }
 
+.card-body {
+    font-family: 'Anton', sans-serif;
+    color: #207EDB;
+}
+
+.img-carousel {
+    height: 300px;
+    width: 100%;
+}
 
 /* control image height */
 .card-img-top-250 {
-    max-height: 300px;
+    max-height: 250px;
+    max-width: 120px;
     overflow:hidden;
+}
+
+.card {
+    height: 300px;
+    width: 120px;
 }
 
 /* smoother transitions */

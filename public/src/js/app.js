@@ -6,3 +6,4 @@
     $('.prev').click(function(){ $('.carousel').carousel('prev');return false; });
     
 })(jQuery);
+
