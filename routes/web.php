@@ -15,3 +15,9 @@ Route::get('/', [
     'uses' => 'ProductController@getIndex',
     'as' => 'welcome.index'
 ]);
+
+Route::get('/products/{product}', [ 
+    'uses' => 'ProductController@showOne',
+    'as' => 'welcome.show'
+]);
+

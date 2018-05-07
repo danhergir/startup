@@ -51,7 +51,7 @@
                     <div class="card-deck">
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -106,7 +106,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -133,7 +133,7 @@
                     <div class="card-deck">
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -144,7 +144,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -155,7 +155,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -166,7 +166,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -177,7 +177,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -188,7 +188,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
@@ -199,7 +199,7 @@
                     </div>
                     <div class="card">
                         <div class="card-img-top card-img-top-250">
-                            <img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1">
+                            <a href="{{ route('welcome.show', ['product' => $product->id]) }}"><img class="img-fluid rounded" src="{{$product->imageUrl}}" alt="Carousel 1"></a>
                             <div class="card-body pt-2">
                                 <h5>${{$product->price}}</h5>
                             </div>
