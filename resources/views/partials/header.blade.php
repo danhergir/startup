@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row sticky-top">
     <div class="col-md-12 navbar navbar-expand-lg navbar-light bg-primary">
         <div class="col-md-3 ml-2">
             <span><a class="navbar-brand" href="{{ route('welcome.index') }}">Brand</a></span>
@@ -13,9 +13,9 @@
                     <a class="dropdown-item" href="#">Computers</a>
                     <a class="dropdown-item" href="#">More Tech</a>
                     </div>
-                <form class="form-inline my-2 my-lg-0 bg-light rounded-right" style:"outline:hidden; overflow:hidden">
-                <input style="height: 50px; width: 450px;" type="text" placeholder="Search" class="form-control" aria-label="Text input with dropdown button">
-                <button style="height: 50px" class="btn btn-ligh my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                <form class="form-inline my-2 my-lg-0 bg-light" style:"outline:hidden; overflow:hidden">
+                    <input style="height: 50px; width: 450px; border:hidden" type="text" placeholder="Search" class="form-control" aria-label="Text input with dropdown button">
+                    <button style="height: 50px" class="btn btn-ligh my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 </div>
             </div>

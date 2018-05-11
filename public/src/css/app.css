@@ -1,0 +1,41 @@
+.carousel-img {
+    height: 300px;
+    width: 220px;
+}
+
+.carousel-card {
+    width: 220px;
+}
+
+.body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-text {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.card {
+    border: none;
+}
+
+.card-title {
+    font-size: 16px;
+}
+
+.row.vertical-divider {
+    overflow: hidden;
+  }
+  .row.vertical-divider > div[class^="col-"] {
+    text-align: center;
+    padding-bottom: 100px;
+    margin-bottom: -100px;
+    border-left: 2px solid rgb(183, 196, 204);
+  }
+  .row.vertical-divider div[class^="col-"]:first-child {
+    border-left: none;
+  }
+  .row.vertical-divider div[class^="col-"]:last-child {
+    border-right: none;
+  }
