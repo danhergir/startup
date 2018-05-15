@@ -7,13 +7,15 @@
     width: 220px;
 }
 
-.body {
-    font-family: 'Roboto', sans-serif;
-}
-
 .card-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     font-weight: bold;
     font-size: 22px;
+}
+
+.product {
+    font-family: 'Roboto', sans-serif;
 }
 
 .card {
@@ -39,3 +41,8 @@
   .row.vertical-divider div[class^="col-"]:last-child {
     border-right: none;
   }
+
+.carousel-control {
+    padding-top:200px;
+}
+
