@@ -18,6 +18,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.product-image {
+    height: 100px;
+    width: 100px;
+}
+
 .card {
     border: none;
 }
@@ -45,4 +50,5 @@
 .carousel-control {
     padding-top:200px;
 }
+
 
