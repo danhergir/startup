@@ -44,7 +44,7 @@
             <span class="text-primary"><i style="font-size:30px" class="fas fa-shopping-bag"></i></span>
             <h4>Launch your own products.</h4>
             <p>Sell and receive cryptocurrencies</p>
-            <a href="#">Create an account</a>
+            <a href="{{ route('register') }}">Create an account</a>
         </div>
         <div class="col-md-4 text-center">
             <span class="text-primary"><i style="font-size:30px" class="fab fa-bitcoin"></i></span><span class="text-primary ml-3"><i style="font-size:30px" class="fab fa-ethereum"></i></span>

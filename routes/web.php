@@ -21,3 +21,11 @@ Route::get('/products/{product}', [
     'as' => 'welcome.show'
 ]);
 
+Route::get('logout', [
+    'uses' => '\App\Http\Controllers\Auth\LoginController@logout',
+    'as' => 'logout'
+]);
+
+Auth::routes();
+
+

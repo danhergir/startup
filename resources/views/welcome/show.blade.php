@@ -120,5 +120,23 @@ Brand
     </div>
 </div>
 <hr class="mt-5">
+<div class="container">
+    <div class="comments">
+        <h3>Reviews and comments</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            Stars
+        </div>
+        <div class="col-md-4">
+            Rate and statistics
+        </div>
+        <div class="col-md-4">
+            Write a comment
+        </div>
+    </div>
+</div>
 
 @endsection

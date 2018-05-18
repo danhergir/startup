@@ -51,4 +51,9 @@
     padding-top:200px;
 }
 
+button:focus {outline:0;}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+  }
 
