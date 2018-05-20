@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', [
     'uses' => 'ProductController@getIndex',
     'as' => 'welcome.index'
@@ -21,10 +22,18 @@ Route::get('/products/{product}', [
     'as' => 'welcome.show'
 ]);
 
-Route::get('logout', [
-    'uses' => '\App\Http\Controllers\Auth\LoginController@logout',
-    'as' => 'logout'
-]);
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/user/profile', [
+        'uses' => 'UserController@userProfile',
+        'as' => 'user.profile'
+    ]);
+
+    Route::get('/logout', [
+        'uses' => '\App\Http\Controllers\Auth\LoginController@logout',
+        'as' => 'logout'
+    ]);
+}); 
 
 Auth::routes();
 

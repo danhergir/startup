@@ -5,7 +5,7 @@
             <span><a class="navbar-brand" href="{{ route('welcome.index') }}">Brand</a></span>
         </div>
         <div class="col-md-6">
-            <div class="input-group">
+            <div class="input-group justify-content-center">
                 <div class="input-group-prepend rounded-left bg-light" style="overflow:hidden">
                     <button class="btn btn-outline-dark dropdown-toggle" style="height:50px; border:hidden" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></button>
                     <div class="dropdown-menu">
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <button class="ml-4" style="border:hidden; overflow:hidden; outline:hidden; background-color:#007bff!important" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="navbar-brand dropdown-toggle"><i class="fas fa-user"></i></span></button>
                 <div class="dropdown-menu">
                     <div class="container text-center">
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <button class="ml-4" style="border:hidden; overflow:hidden; outline:hidden; background-color:#007bff!important" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="navbar-brand dropdown-toggle"><i class="fas fa-user"></i></span></button>
                 <div class="dropdown-menu">
                     <div class="container text-center">
@@ -70,13 +70,15 @@
                             {{ csrf_field() }}
                         </form>
                     </div>
+                    <div class="container text-center">
+                        <a href="{{ route('user.profile') }}">My Profile</a>
+                    </div>
                 </div>
             <span><a class="navbar-brand" href="#"><i class="fas fa-shopping-cart"></i></a></span>
             <span><a class="navbar-brand ml-2" href="#"><i class="fas fa-heart"></i></a></span>
         </div>
     </div>
 </div>  
-
 @endif
 
 

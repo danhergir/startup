@@ -14,10 +14,10 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img class="d-block w-100" style="height:500px; width:1300px" src="https://i5.walmartimages.com/dfw/4ff9c6c9-dae3/k2-_c12f9660-a608-4622-8ddc-81cbc75e7e99.v1.jpg?odnWidth=1360&odnHeight=600&odnBg=ffffff" alt="First slide">
+                <img class="d-block w-100" style="height:500px" src="https://i5.walmartimages.com/dfw/4ff9c6c9-dae3/k2-_c12f9660-a608-4622-8ddc-81cbc75e7e99.v1.jpg?odnWidth=1360&odnHeight=600&odnBg=ffffff" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                <img class="d-block w-100" style="height:500px; width:1300px" src="https://i5.walmartimages.com/dfw/4ff9c6c9-b641/k2-_b438ec77-681b-441e-ac84-a259f42bc578.v1.jpg?odnWidth=1360&odnHeight=600&odnBg=ffffff" alt="Second slide">
+                <img class="d-block w-100" style="height:500px" src="https://i5.walmartimages.com/dfw/4ff9c6c9-b641/k2-_b438ec77-681b-441e-ac84-a259f42bc578.v1.jpg?odnWidth=1360&odnHeight=600&odnBg=ffffff" alt="Second slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
