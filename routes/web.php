@@ -28,6 +28,26 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'UserController@userProfile',
         'as' => 'user.profile'
     ]);
+    
+    Route::get('/user/profile/account', [
+        'uses' => 'UserController@userAccount',
+        'as' => 'user.account'
+    ]);
+
+    Route::patch('/users/profile/account/{user}/name-update',  [
+        'as' => 'user.nameUpdate', 
+        'uses' => 'UserController@nameUpdate'
+    ]);
+
+    Route::patch('/users/profile/account/{user}/email-update',  [
+        'as' => 'user.emailUpdate', 
+        'uses' => 'UserController@emailUpdate'
+    ]);
+
+    Route::patch('/users/profile/account/{user}/password-update',  [
+        'as' => 'user.passwordUpdate', 
+        'uses' => 'UserController@passwordUpdate'
+    ]);
 
     Route::get('/logout', [
         'uses' => '\App\Http\Controllers\Auth\LoginController@logout',
