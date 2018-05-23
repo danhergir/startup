@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Account settings
+Account 
 @endsection
 
 @section('content')
@@ -120,7 +120,7 @@ Account settings
                         <div class="collapse" id="collapseExample3">
                             <hr>
                             <div class="card card-body">
-                                <form method="post" action="{{ route('user.passwordUpdate', $user) }}">
+                                <form method="post" action="{{ route('user.passwordUpdate', [$user, $address]) }}">
                                     {{ csrf_field() }}
                                     {{ method_field('patch') }}
                                     

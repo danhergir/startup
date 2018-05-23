@@ -34,19 +34,29 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'user.account'
     ]);
 
-    Route::patch('/users/profile/account/{user}/name-update',  [
-        'as' => 'user.nameUpdate', 
-        'uses' => 'UserController@nameUpdate'
+    Route::patch('/user/profile/account/{user}/name-update',  [
+        'uses' => 'UserController@nameUpdate',
+        'as' => 'user.nameUpdate'
     ]);
 
-    Route::patch('/users/profile/account/{user}/email-update',  [
-        'as' => 'user.emailUpdate', 
-        'uses' => 'UserController@emailUpdate'
+    Route::patch('/user/profile/account/{user}/email-update',  [
+        'uses' => 'UserController@emailUpdate',
+        'as' => 'user.emailUpdate'
     ]);
 
-    Route::patch('/users/profile/account/{user}/password-update',  [
-        'as' => 'user.passwordUpdate', 
-        'uses' => 'UserController@passwordUpdate'
+    Route::patch('/user/profile/account/{user}/password-update',  [
+        'uses' => 'UserController@passwordUpdate',
+        'as' => 'user.passwordUpdate'
+    ]);
+
+    Route::get('/user/profile/address', [
+        'uses' => 'UserController@getAddress',
+        'as' => 'user.address'
+    ]);
+
+    Route::post('/user/profile/address/{user}/create', [
+        'uses' => 'UserController@newAddress',
+        'as' => 'user.newAddress'
     ]);
 
     Route::get('/logout', [
