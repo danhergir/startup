@@ -59,6 +59,11 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'user.newAddress'
     ]);
 
+    Route::post('/user/profile/address/{address}/delete', [
+        'uses' => 'AddressController@deleteAddress',
+        'as' => 'user.deleteAddress',
+    ]);
+
     Route::get('/logout', [
         'uses' => '\App\Http\Controllers\Auth\LoginController@logout',
         'as' => 'logout'

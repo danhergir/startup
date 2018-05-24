@@ -120,7 +120,7 @@ Account
                         <div class="collapse" id="collapseExample3">
                             <hr>
                             <div class="card card-body">
-                                <form method="post" action="{{ route('user.passwordUpdate', [$user, $address]) }}">
+                                <form method="post" action="{{ route('user.passwordUpdate', $user) }}">
                                     {{ csrf_field() }}
                                     {{ method_field('patch') }}
                                     

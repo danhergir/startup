@@ -8,5 +8,5 @@ use App\Address;
 
 class AddressController extends Controller
 {
-
+    
 }

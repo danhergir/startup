@@ -67,9 +67,6 @@ class UserController extends Controller
     }
 
     public function newAddress(User $user, Address $address) {
-        $user = Auth::user();
-        $addresses = $user->addresses; 
-
         $this->validate(request(), [
             'user_id' => 'integer',
             'first_name' => 'required|string|max:20',
@@ -81,7 +78,7 @@ class UserController extends Controller
             'state_province' => 'required|string|max:20',
             'phone_number' => 'required|string|max:14',
             'phone_number' => 'required|string|max:14',
-            'address_type' => 'required|string|max:14'
+            'address_type' => 'required|string'
         ]);
 
         $address->user_id = $user->id;
@@ -97,6 +94,16 @@ class UserController extends Controller
         $address->address_type = request('address_type');
 
         $address->save();
+
+        return redirect()->back();
+    }
+
+    public function deleteAddress(User $user, Address $address)
+    {   
+        $user = Auth::user();
+        $address = $user->addresses('id');
+
+        $address::destroy();
 
         return redirect()->back();
     }
