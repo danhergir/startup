@@ -24,6 +24,8 @@ Route::get('/products/{product}', [
 
 
 Route::group(['middleware' => 'auth'], function() {
+
+    /* User Routes related with his profile */
     Route::get('/user/profile', [
         'uses' => 'UserController@userProfile',
         'as' => 'user.profile'
@@ -59,15 +61,22 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'user.newAddress'
     ]);
 
-    Route::post('/user/profile/address/{address}/delete', [
-        'uses' => 'AddressController@deleteAddress',
+    Route::post('/user/profile/address/delete', [
+        'uses' => 'UserController@deleteAddress',
         'as' => 'user.deleteAddress',
     ]);
+
 
     Route::get('/logout', [
         'uses' => '\App\Http\Controllers\Auth\LoginController@logout',
         'as' => 'logout'
     ]);
+    
+    Route::post('/products/review/store', [
+        'uses' => 'ProductReviewController@store',
+        'as' => 'review.store'
+    ]);
+
 }); 
 
 Auth::routes();

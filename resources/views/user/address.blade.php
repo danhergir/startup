@@ -21,15 +21,19 @@ Account
                         <div class="card mb-3">
                             <div class="card-header">
                                 <div class="card-title">
-                                    <div class="delete-button">
-                                        <form method="post" action="{{ route('user.deleteAddress', $address) }}">
-                                            {{ csrf_field() }}
-                                            {{ method_field('delete') }}
-                                            <button type="submit" class="btn btn-primary"><i class="fas fa-times"></i></button>
-                                        </form>
-                                    </div>
                                     <div class="address-user pb-2">
-                                        <h6>{{ $address->first_name }} {{ $address->last_name }}</h6>
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <h6>{{ $address->first_name }} {{ $address->last_name }}</h6>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <form class="float-right" method="post" action="{{ Route('user.deleteAddress') }}">
+                                                    {{ csrf_field() }}
+                                                    <input type='hidden' value='{{ $address->id }}' name='address_id'/>
+                                                    <button class="text-dark mr-2" style="cursor:pointer; border:hidden" type="submit"><u><i class="fas fa-times"></i></u></button>
+                                                </form> 
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="address-info">
                                         <p>{{ $address->street_address }}, {{ $address->street_address2 }}, {{ $address->city }}, {{ $address->country }}</p>

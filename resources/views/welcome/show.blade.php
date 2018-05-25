@@ -10,15 +10,15 @@ Brand
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img class="d-block mx-auto" src="https://i5.walmartimages.com/asr/2f24a0b1-b1c2-4e6f-aee0-66143651b6e4_1.734c3efd52ff08d7a5fa7516b30fac68.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF" alt="First slide">
+                <img class="d-block mx-auto" src="{{ $product->imageUrl }}" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                <img class="d-block mx-auto" src="https://i5.walmartimages.com/asr/d40ad991-47ef-4625-bddb-8ae53f94e5dc_1.0b6d00a772c621abd700691288988c6e.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF" alt="Second slide">
+                <img class="d-block mx-auto" src="{{ $product->image1 }}" alt="Second slide">
                 </div>
             </div>
             <div class="text-center pt-2">
-                <img style="cursor: pointer" data-target="#carouselExampleIndicators" data-slide-to="0" class="active img-thumbnail product-image" src="https://i5.walmartimages.com/asr/2f24a0b1-b1c2-4e6f-aee0-66143651b6e4_1.734c3efd52ff08d7a5fa7516b30fac68.jpeg?odnHeight=180&odnWidth=180&odnBg=FFFFFF" alt="">
-                <img style="cursor: pointer" data-target="#carouselExampleIndicators" data-slide-to="1" class="img-thumbnail product-image" src="https://i5.walmartimages.com/asr/d40ad991-47ef-4625-bddb-8ae53f94e5dc_1.0b6d00a772c621abd700691288988c6e.jpeg?odnHeight=180&odnWidth=180&odnBg=FFFFFF" alt="">
+                <img style="cursor: pointer" data-target="#carouselExampleIndicators" data-slide-to="0" class="active img-thumbnail product-image" src="{{ $product->imageUrl }}" alt="">
+                <img style="cursor: pointer" data-target="#carouselExampleIndicators" data-slide-to="1" class="img-thumbnail product-image" src="{{ $product->image1 }}" alt="">
             </div>
         </div>
     </div>
@@ -134,7 +134,44 @@ Brand
             Rate and statistics
         </div>
         <div class="col-md-4">
-            Write a comment
+            @if(auth()->check())
+                <form method="post" action="{{ route('review.store') }}">
+                    {{ csrf_field() }}
+                    <h5>Form title</h5> 
+
+                    <div class="form-group">
+                        <label for="headline"><strong>Headline</strong></label>
+                        <input type="text" class="form-control" name="headline" id="headline" placeholder="Review title">
+                    </div>
+                    <div class="form-group">
+                        <label for="headline"><strong>Rating</strong></label>
+                        <input type="text" class="form-control" name="rating" id="rating" placeholder="A number from 1 - 5">
+                    </div>
+                    <div class="form-group">
+                        <label for="headline"><strong>Description</strong></label>
+                        <input type="text" class="form-control" name="description" id="description" placeholder="Tell us about your experience">
+                    </div>
+                    
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </form>
+            @else
+                <a href="/login" class="btn btn-primary" role="button">Write a review</a>
+            @endif
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                @forelse($product->reviews as $review)
+                <li>{{ $review->headline }}</li>
+                @empty
+
+                @endforelse
+            </ul>
         </div>
     </div>
 </div>

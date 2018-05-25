@@ -21,5 +21,17 @@ class ProductTableSeeder extends Seeder
             'price' => 359.99,
         ]);
         $product->save();
+
+        $product = new \App\Product([
+            'imageUrl' => 'https://i5.walmartimages.com/asr/ff43f0f1-f565-423f-93d5-be06ff36622c_1.75068acf756e9c2e1a04db7f68e00349.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF',
+            'image1' => 'https://i5.walmartimages.com/asr/43b07db6-21e4-44ec-a333-9799f7a6d6e4_1.74cfd420d38bee0ea4fe90abb3e66298.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF',
+            'image2' => 'https://i5.walmartimages.com/asr/ff43f0f1-f565-423f-93d5-be06ff36622c_1.75068acf756e9c2e1a04db7f68e00349.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF',
+            'image3' => 'https://i5.walmartimages.com/asr/43b07db6-21e4-44ec-a333-9799f7a6d6e4_1.74cfd420d38bee0ea4fe90abb3e66298.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF',
+            'title' => 'Xbox One Wireless Controller White',
+            'description' => 'Equip yourself with the Xbox Wireless Controller, featuring a sleek, arctic camouflage design and textured grip for enhanced comfort. Enjoy custom button mapping and up to twice the wireless range. Plug in any compatible headset with the 3.5mm stereo headset jack. And with Bluetooth technology, play your favorite games on Windows 10 PCs and tablets Microsoft Xbox One Wireless Controller, White',
+            'price' => 359.99,
+        ]);
+        $product->save();
+
     }
 }

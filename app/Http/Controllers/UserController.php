@@ -98,13 +98,16 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function deleteAddress(User $user, Address $address)
+    public function deleteAddress(Request $request)
     {   
-        $user = Auth::user();
-        $address = $user->addresses('id');
-
-        $address::destroy();
-
+        $address_id = $request->input('address_id');        
+        $address = Address::find($address_id);
+    
+        if(!empty($address) && $address->user_id === Auth::user()->id){
+            // for security- to make sure the delete request is valid and coming from the owner of the address.
+           $address->delete();
+        }
+    
         return redirect()->back();
     }
 }
