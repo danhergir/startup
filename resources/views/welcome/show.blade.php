@@ -128,10 +128,10 @@ Brand
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            Stars
+
         </div>
         <div class="col-md-4">
-            Rate and statistics
+            Rating - statistics
         </div>
         <div class="col-md-4">
             @if(auth()->check())
@@ -169,11 +169,12 @@ Brand
                 @forelse($product->reviews as $review)
                 <li>{{ $review->headline }}</li>
                 @empty
-
+                    <h6>There are not reviews for this product</h6>
                 @endforelse
             </ul>
         </div>
     </div>
 </div>
-
 @endsection
+
+
