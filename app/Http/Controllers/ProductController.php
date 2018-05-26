@@ -18,9 +18,8 @@ class ProductController extends Controller
         return view('welcome.show', ['product' => $product]);
     }
 
-    public function createFormReview(Product $product) {    
-
+    public function createFormReview(Product $product) 
+    {  
         return view('product.reviews', ['product' => $product]);
     }
-   
 }

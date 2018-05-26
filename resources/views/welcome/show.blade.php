@@ -126,7 +126,6 @@ Brand
     </div>
 </div>
 <div class="container">
-        <start-rating></start-rating>
     <div class="row">
         <div class="col-md-4">
             Number of stars 
@@ -137,7 +136,7 @@ Brand
         <div class="col-md-4">
             @if(auth()->check())
                 <div class="create-review text-right">
-                    <a href="{{ route('create.review', [ $product ] ) }}" class="btn btn-primary" role="button" style="border-radius:20px">Write a review</a>
+                    <a href="{{ route('create.review', [$product] ) }}" class="btn btn-primary" role="button" style="border-radius:20px">Write a review</a>
                 </div>
             @else
                 <div class="write-review text-right">
@@ -153,15 +152,18 @@ Brand
         <div class="col-md-6">
         <h3>Recent comments</h3>
             @forelse($product->reviews as $review)
-            <div class="comment mt-5 border border-dark pl-3 pt-3 pb-3 rounded">
+            <div class="comment mt-5 border border-dark pl-3 pt-3 pb-3 mb-3 rounded">
                 <div class="title">
                     <h4>{{ $review->headline }}</h4>
                 </div>
-                <div class="body-text pt-3">
-                    <p><strong>{{ $review->description }}</strong></p>
+                <div class="body-text pt-3 pr-5">
+                    <p style="text-align:justify"><strong>{{ $review->description }}</strong></p>
                 </div>
                 <div class="author pt-2">
-                    <h6>Daniel Hernandez,  {{ date('d-m-Y', strtotime( $review->created_at )) }}</h6>
+                    <h6 class="text-muted">{{ $review->user_name }},  {{ date('d-m-Y', strtotime( $review->created_at )) }}</h6>
+                </div>
+                <div class="votes row">
+
                 </div>
             </div>
             @empty
