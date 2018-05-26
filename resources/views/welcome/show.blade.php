@@ -126,52 +126,47 @@ Brand
     </div>
 </div>
 <div class="container">
+        <start-rating></start-rating>
     <div class="row">
         <div class="col-md-4">
-
+            Number of stars 
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 text-center">
             Rating - statistics
         </div>
         <div class="col-md-4">
             @if(auth()->check())
-                <form method="post" action="{{ route('review.store') }}">
-                    {{ csrf_field() }}
-                    <h5>Form title</h5> 
-
-                    <div class="form-group">
-                        <label for="headline"><strong>Headline</strong></label>
-                        <input type="text" class="form-control" name="headline" id="headline" placeholder="Review title">
-                    </div>
-                    <div class="form-group">
-                        <label for="headline"><strong>Rating</strong></label>
-                        <input type="text" class="form-control" name="rating" id="rating" placeholder="A number from 1 - 5">
-                    </div>
-                    <div class="form-group">
-                        <label for="headline"><strong>Description</strong></label>
-                        <input type="text" class="form-control" name="description" id="description" placeholder="Tell us about your experience">
-                    </div>
-                    
-                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-
-                    <button class="btn btn-primary" type="submit">Save</button>
-                </form>
+                <div class="create-review text-right">
+                    <a href="{{ route('create.review', [ $product ] ) }}" class="btn btn-primary" role="button" style="border-radius:20px">Write a review</a>
+                </div>
             @else
-                <a href="/login" class="btn btn-primary" role="button">Write a review</a>
+                <div class="write-review text-right">
+                    <a href="/login" class="btn btn-primary" role="button" style="border-radius:20px">Write a review</a>
+                </div>
             @endif
         </div>
     </div>
 </div>
+<hr>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <ul>
-                @forelse($product->reviews as $review)
-                <li>{{ $review->headline }}</li>
-                @empty
-                    <h6>There are not reviews for this product</h6>
-                @endforelse
-            </ul>
+        <h3>Recent comments</h3>
+            @forelse($product->reviews as $review)
+            <div class="comment mt-5 border border-dark pl-3 pt-3 pb-3 rounded">
+                <div class="title">
+                    <h4>{{ $review->headline }}</h4>
+                </div>
+                <div class="body-text pt-3">
+                    <p><strong>{{ $review->description }}</strong></p>
+                </div>
+                <div class="author pt-2">
+                    <h6>Daniel Hernandez,  {{ date('d-m-Y', strtotime( $review->created_at )) }}</h6>
+                </div>
+            </div>
+            @empty
+            <h6>There are not reviews for this product</h6>
+            @endforelse
         </div>
     </div>
 </div>

@@ -19,5 +19,7 @@
         "lodash": "^4.17.4",
         "vue": "^2.5.7"
     },
-    "dependencies": {}
+    "dependencies": {
+        "vue-star-rating": "^1.6.0"
+    }
 }

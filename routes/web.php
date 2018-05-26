@@ -72,6 +72,11 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'logout'
     ]);
     
+    Route::get('/product/review/form/{product}', [
+        'uses' => 'ProductController@createFormReview',
+        'as' => 'create.review'
+    ]);
+
     Route::post('/products/review/store', [
         'uses' => 'ProductReviewController@store',
         'as' => 'review.store'
