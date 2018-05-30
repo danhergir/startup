@@ -33,8 +33,7 @@
 
             axios.post(this.url,this.formData)
                 .then(data=>{
-                    router.go('welcome.show')
-
+                    window.location.href = "/products/" + this.formData.product_id;
                 })
                 .catch(error=>{
                     console.log(error.response);

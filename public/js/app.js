@@ -47477,11 +47477,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         postReview: function postReview() {
+            var _this = this;
+
             this.formData.product_id = this.product.id;
             this.formData.user_name = this.user.first_name;
 
             axios.post(this.url, this.formData).then(function (data) {
-                router.go('welcome.show');
+                window.location.href = "/products/" + _this.formData.product_id;
             }).catch(function (error) {
                 console.log(error.response);
             });
