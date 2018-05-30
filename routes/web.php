@@ -70,7 +70,11 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'UserController@getReviews',
         'as' => 'user.review'
     ]);
-
+    
+    Route::post('/user/profile/reviews/delete', [
+        'uses' => 'UserController@deleteReview',
+        'as' => 'user.deleteReview'
+    ]);
 
     Route::get('/logout', [
         'uses' => '\App\Http\Controllers\Auth\LoginController@logout',

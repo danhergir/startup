@@ -172,9 +172,6 @@ Brand
                     <div class="author pt-2">
                         <h6 class="text-muted">{{ $review->user_name }},  {{ date('d-m-Y', strtotime( $review->created_at )) }}</h6>
                     </div>
-                    <div class="votes row">
-    
-                    </div>
                 </div>
                 @empty
                 <h6>There are not reviews for this product</h6>

@@ -116,4 +116,16 @@ class UserController extends Controller
     {   
         return view('user.review', ['user' => $user]);
     }
+
+    public function deleteReview(Request $request)
+    {
+        $review_id = $request->input('review_id');
+        $review = ProductReview::find($review_id);
+
+        if(!empty($review) && $review->user_id === Auth::user()->id){
+           $review->delete();
+        }
+
+        return redirect()->back();
+    }
 }
