@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Address;
+use App\ProductReview;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
@@ -109,5 +110,10 @@ class UserController extends Controller
         }
     
         return redirect()->back();
+    }
+
+    public function getReviews(User $user)
+    {   
+        return view('user.review', ['user' => $user]);
     }
 }

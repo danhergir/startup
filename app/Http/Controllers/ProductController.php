@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\ProductReview;
+use App\User;
 
 class ProductController extends Controller
 {
@@ -20,6 +22,6 @@ class ProductController extends Controller
 
     public function createFormReview(Product $product) 
     {  
-        return view('product.reviews', ['product' => $product]);
+        return view('product.reviews',  ['product' => $product]);
     }
 }

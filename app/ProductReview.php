@@ -8,3 +8,4 @@ class ProductReview extends Model
 {
     protected $fillable = ['headline', 'description', 'rating', 'product_id', 'user_name'];
 }
+

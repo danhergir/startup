@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ProductReview;
+use App\Product;
 use Illuminate\Http\Request;
 
 class ProductReviewController extends Controller
@@ -33,11 +34,9 @@ class ProductReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {   
+    public function store(Request $request, Product $product)
+    {  
         auth()->user()->reviews()->create($request->all());
-
-        return redirect()->back();
     }
 
     /**

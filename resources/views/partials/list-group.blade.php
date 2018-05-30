@@ -11,7 +11,7 @@
                     <li class="list-item mb-2"><a href="{{ route('user.profile') }}">Purchase history</a></li>
                     <li class="list-item mb-2"><a href="{{ route('user.account') }}">Account</a></li>
                     <li class="list-item mb-2"><a href="{{ route('user.address') }}">Shipping address</a></li>
-                    <li class="list-item mb-2"><a href="#">Comments & reviews</a></li>
+                    <li class="list-item mb-2"><a href="{{ route('user.review') }}">Comments & reviews</a></li>
                 </ul>
             </div>  
         </div>

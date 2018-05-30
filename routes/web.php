@@ -66,6 +66,11 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'user.deleteAddress',
     ]);
 
+    Route::get('/user/profile/reviews' , [
+        'uses' => 'UserController@getReviews',
+        'as' => 'user.review'
+    ]);
+
 
     Route::get('/logout', [
         'uses' => '\App\Http\Controllers\Auth\LoginController@logout',
