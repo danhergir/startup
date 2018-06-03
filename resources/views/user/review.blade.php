@@ -39,10 +39,9 @@ Account
                     <h6 class="text-muted">{{ $review->user_name }},  {{ date('d-m-Y', strtotime( $review->created_at )) }}</h6>
                 </div>
             </div>
-            @endforeach
+        @endforeach
         </div>
         @endforeach
     </div>
 </div>
-
 @endsection

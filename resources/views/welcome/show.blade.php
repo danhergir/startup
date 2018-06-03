@@ -125,7 +125,7 @@ Brand
     </div>
     <hr class="mt-5">
     <div class="container">
-        <div class="comments">
+        <div class="comments pb-3">
             <h3>Reviews and comments</h3>
         </div>
     </div>
@@ -134,11 +134,11 @@ Brand
             <div class="col-md-4">
                 <star-rating :read-only="true" :star-size="30" :show-rating="false" :rating="{{ $product->getStarRating() }}"></star-rating>
                 <div class="stars pt-3">
-                    <h5><strong>{{ $product->getStarRating() }} stars</strong>  out of 5 stars</h5>
+                    <h5><strong>{{ $product->getStarRating() }} stars</strong>  out of 5 stars</h5>  
                 </div>
             </div>
             <div class="col-md-4 text-center">
-                Rating - statistics
+                Chart for my product
             </div>
             <div class="col-md-4">
                 @if(auth()->check())
@@ -164,10 +164,13 @@ Brand
                         <h4>{{ $review->headline }}</h4>
                     </div>
                     <div class="user-rating">
-                        <star-rating class="pr-3 " :star-size="20" :read-only="true" :show-rating="false" :rating="{{ $review->rating }}"></star-rating>
+                        <star-rating class="pr-3" :star-size="20" :read-only="true" :show-rating="false" :rating="{{ $review->rating }}"></star-rating>
                     </div>
                     <div class="body-text pt-3 pr-5">
                         <p style="text-align:justify"><strong>{{ $review->description }}</strong></p>
+                    </div>
+                    <div class="body-text pt-3">
+                        <h6><a href=""><i class="far fa-thumbs-up mr-2"></i>2</a><a href=""><i class="far fa-thumbs-down mr-2 ml-4"></i>2</a></h6>
                     </div>
                     <div class="author pt-2">
                         <h6 class="text-muted">{{ $review->user_name }},  {{ date('d-m-Y', strtotime( $review->created_at )) }}</h6>
@@ -180,6 +183,13 @@ Brand
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+<script>
+
+</script>
 @endsection
 
 
