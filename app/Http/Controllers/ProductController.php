@@ -24,9 +24,4 @@ class ProductController extends Controller
     {  
         return view('product.reviews',  ['product' => $product]);
     }
-
-    public function getChart() {
-        $result = DB::table('product_reviews')->where('product_id', $this->id)->pluck('rating');
-        return $result;
-    }
 }

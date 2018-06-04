@@ -159,7 +159,7 @@ Brand
             <div class="col-md-6" id="user-reviews">
             <h3>Recent comments</h3>
                 @forelse($product->reviews as $review)
-                <div class="comment mt-5 border border-dark pl-3 pt-3 pb-3 mb-3 rounded">
+                <div class="mt-5 border border-dark pl-3 pt-3 pb-3 mb-3 rounded reviewid" data-reviewid="{{ $review->id }}">
                     <div class="title">
                         <h4>{{ $review->headline }}</h4>
                     </div>
@@ -170,7 +170,10 @@ Brand
                         <p style="text-align:justify"><strong>{{ $review->description }}</strong></p>
                     </div>
                     <div class="body-text pt-3">
-                        <h6><a href=""><i class="far fa-thumbs-up mr-2"></i>2</a><a href=""><i class="far fa-thumbs-down mr-2 ml-4"></i>2</a></h6>
+                        <h6>
+                            <a href="#" class="btn btn-xs btn-warning like">Like</a>
+                            <a href="#" class="btn btn-xs btn-danger like">Dislike</a>
+                        </h6>
                     </div>
                     <div class="author pt-2">
                         <h6 class="text-muted">{{ $review->user_name }},  {{ date('d-m-Y', strtotime( $review->created_at )) }}</h6>
@@ -183,12 +186,15 @@ Brand
         </div>
     </div>
 </div>
+
+
 @endsection
 
 @section('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-<script>
-
+<script src="{{ asset('js/like.js') }}"></script>
+<script type="text/javascript">
+    var token = '{{ Session::token() }}';
+    var urlLike = '{{ route('like') }}';
 </script>
 @endsection
 

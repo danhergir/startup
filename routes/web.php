@@ -91,9 +91,9 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'review.store'
     ]);
 
-    Route::get('/projects/chart/data', [
-        'uses' => 'ProductController@getChart',
-        'as' => 'product.chart'
+    Route::post('/like', [
+        'uses' => 'ProductReviewController@postLike',
+        'as' => 'like'
     ]);
 }); 
 
