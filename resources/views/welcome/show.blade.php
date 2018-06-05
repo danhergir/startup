@@ -202,7 +202,6 @@ Brand
 
 @section('scripts')
 <script src="{{ asset('js/like.js') }}"></script>
-@foreach($product->reviews as $review)
 <script type="text/javascript">
     var token = '{{ Session::token() }}';
     var urlLike = '{{ route('like') }}';
