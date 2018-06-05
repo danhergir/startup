@@ -15,9 +15,9 @@ class ProductController extends Controller
         return view('welcome.index', ['products' => $products]);
     }
 
-    public function showOne(Product $product)
+    public function showOne(Product $product, ProductReview $productReview)
     {
-        return view('welcome.show', ['product' => $product]);
+        return view('welcome.show', ['product' => $product, 'productReview' => $productReview]);
     }
 
     public function createFormReview(Product $product) 

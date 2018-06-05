@@ -5,6 +5,9 @@ $('.like').on('click', function(event) {
 
     $.ajax({
         method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
         url: urlLike,
         data: {isLike: isLike, reviewId: reviewId, _token:token},
         success: function(json) {
@@ -12,4 +15,14 @@ $('.like').on('click', function(event) {
         },
         error: function(e){ console.log(e.responseText); }
     })
+});
+
+$(document).ready(function(){
+    $(".guest-like").click(function(){
+        $(".auth-message").show();
+        $('.auth-message').delay(2000).hide(100);
+    });
+    $(".close-span").click(function(){
+        $(".auth-message").hide();
+    });
 });

@@ -35,7 +35,7 @@
     padding-top:200px;
 }
 
-button:focus {outline:0;}
+.a:focus {outline:0 !important;}
 
 .dropdown:hover>.dropdown-menu {
     display: block;
@@ -43,9 +43,5 @@ button:focus {outline:0;}
 
 .content-left {
     border-right: 1px solid rgba(0,0,0,.125);
-  }
-
-html, body {
-    margin: 0;
-    padding: 0;
 }
+

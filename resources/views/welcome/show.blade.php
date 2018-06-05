@@ -170,10 +170,22 @@ Brand
                         <p style="text-align:justify"><strong>{{ $review->description }}</strong></p>
                     </div>
                     <div class="body-text pt-3">
+                        @if(Auth()->check())
                         <h6>
-                            <a href="#" class="like mr-2 btn"><i class="far fa-thumbs-up" onclick="myFunction()"></i></a>{{ $review->getLikes() }}
-                            <a href="#" class="like mr-2 ml-4 btn"><i class="far fa-thumbs-down" onclick="myFunction()"></i><a>{{ $review->getDislikes() }}
+                            <a href="" class="like mr-2"><i class="far fa-thumbs-up"></i></a>{{ $review->getLikes() }}
+                            <a href="" class="like mr-2 ml-4"><i class="far fa-thumbs-down"></i><a>{{ $review->getDislikes() }}
                         </h6>
+                        @else
+                            <div class="container">
+                                <div class="row">
+                                    <div class="alert alert-danger auth-message" style="display:none; height:30px;" role="alert">
+                                        <p style="line-height:5px">You should be authenticated for completing this action<span class="ml-2 close-span" style="cursor:pointer"><strong>x</strong></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0)" class="guest-like mr-2" style=":focus"><i class="far fa-thumbs-up"></i></a>{{ $review->getLikes() }}
+                            <a href="javascript:void(0)" class="guest-like mr-2 ml-4"><i class="far fa-thumbs-down"></i><a>{{ $review->getDislikes() }}
+                        @endif
                     </div>
                     <div class="author pt-2">
                         <h6 class="text-muted">{{ $review->user_name }},  {{ date('d-m-Y', strtotime( $review->created_at )) }}</h6>
@@ -190,10 +202,12 @@ Brand
 
 @section('scripts')
 <script src="{{ asset('js/like.js') }}"></script>
+@foreach($product->reviews as $review)
 <script type="text/javascript">
     var token = '{{ Session::token() }}';
     var urlLike = '{{ route('like') }}';
 </script>
+@endforeach
 @endsection
 
 
