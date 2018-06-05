@@ -171,8 +171,8 @@ Brand
                     </div>
                     <div class="body-text pt-3">
                         <h6>
-                            <a href="#" class="btn btn-xs btn-warning like">Like</a>
-                            <a href="#" class="btn btn-xs btn-danger like">Dislike</a>
+                            <a href="#" class="like mr-2 btn"><i class="far fa-thumbs-up" onclick="myFunction()"></i></a>{{ $review->getLikes() }}
+                            <a href="#" class="like mr-2 ml-4 btn"><i class="far fa-thumbs-down" onclick="myFunction()"></i><a>{{ $review->getDislikes() }}
                         </h6>
                     </div>
                     <div class="author pt-2">
@@ -186,8 +186,6 @@ Brand
         </div>
     </div>
 </div>
-
-
 @endsection
 
 @section('scripts')

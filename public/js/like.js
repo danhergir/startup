@@ -7,6 +7,9 @@ $('.like').on('click', function(event) {
         method: 'POST',
         url: urlLike,
         data: {isLike: isLike, reviewId: reviewId, _token:token},
+        success: function(json) {
+            if(!json.error) location.reload(true);
+        },
         error: function(e){ console.log(e.responseText); }
     })
 });
