@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Product;
+use App\ProductReview;
 use App\Like;
 use DB;
 
@@ -42,5 +43,10 @@ class Product extends Model
         
 
         return ceil($average);
+    }
+
+    public function countRating($number) {
+        $count = \DB::table('product_reviews')->where('product_id', $this->id)->where('rating', $number)->count();
+        return $count;
     }
 }

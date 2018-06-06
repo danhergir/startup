@@ -118,5 +118,4 @@ class ProductReviewController extends Controller
         }
         return null;
     }
-    
 }

@@ -137,9 +137,11 @@ Brand
                     <h5><strong>{{ $product->getStarRating() }} stars</strong>  out of 5 stars</h5>  
                 </div>
             </div>
+            @foreach($product->reviews as $review)
             <div class="col-md-4 text-center">
-                Chart for my product
+                <canvas id="bar-chart-horizontal" width="800" height="450"></canvas>
             </div>
+            @endforeach
             <div class="col-md-4">
                 @if(auth()->check())
                     <div class="create-review text-right">
@@ -171,10 +173,8 @@ Brand
                     </div>
                     <div class="body-text pt-3">
                         @if(Auth()->check())
-                        <h6>
                             <a href="" class="like mr-2"><i class="far fa-thumbs-up"></i></a>{{ $review->getLikes() }}
                             <a href="" class="like mr-2 ml-4"><i class="far fa-thumbs-down"></i><a>{{ $review->getDislikes() }}
-                        </h6>
                         @else
                             <div class="container">
                                 <div class="row">
@@ -206,7 +206,6 @@ Brand
     var token = '{{ Session::token() }}';
     var urlLike = '{{ route('like') }}';
 </script>
-@endforeach
 @endsection
 
 
