@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Product;
 use App\ProductReview;
 use App\Like;
-use DB;
+use \DB;
 
 class Product extends Model
 {
@@ -46,7 +46,15 @@ class Product extends Model
     }
 
     public function countRating($number) {
-        $count = \DB::table('product_reviews')->where('product_id', $this->id)->where('rating', $number)->count();
+        $count = DB::table('product_reviews')->where('product_id', $this->id)->where('rating', $number)->count();
         return $count;
+    }
+
+    public function ratingPercent($number) {
+        $singleRatings = DB::table('product_reviews')->where('product_id', $this->id)->where('rating', $number)->count();
+
+        $totalRatings = DB::table('product_reviews')->where('product_id', $this->id)->select('rating')->count();
+
+        return $singleRatings/$totalRatings*100;
     }
 }

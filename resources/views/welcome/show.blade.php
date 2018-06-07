@@ -51,7 +51,7 @@ Brand
                     <option value="11">11</option>
                     <option value="12">12</option>
                 </select>
-                <button class="rounded btn btn-primary" type="submit" form="NoForm" value="Submit">Add to <i class="fas fa-shopping-cart"></i></button>
+                <button class="btn btn-primary" style="border-radius: 20px;" type="submit" form="NoForm" value="Submit">Add to <i class="fas fa-shopping-cart"></i></button>
             </div>
             <hr>
             <div class="product-shipping">
@@ -59,7 +59,8 @@ Brand
             </div>
             <hr>
             <div class="wish-list">
-                <h6 style="font-weight:bold">Save it too...</h6><button class="rounded btn btn-primary" type="submit" form="NoForm" value="Submit">Add to <i class="fas fa-heart"></i></button>
+                <h6 style="font-weight:bold">Save it too...</h6>
+                <button class="btn btn-primary" style="border-radius: 20px;" type="submit" form="NoForm" value="Submit">Add to <i class="fas fa-heart"></i></button>
             </div>
             <hr>
             <div class="form error-form">
@@ -137,8 +138,57 @@ Brand
                     <h5><strong>{{ $product->getStarRating() }} stars</strong>  out of 5 stars</h5>  
                 </div>
             </div>
-            <div class="col-md-4 text-center">
-                Chart Ratings
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h6 class="progress_title">5 stars</h6>
+                    </div>
+                    <div class="col-md-9 self-align-center">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{ $product->ratingPercent(5) }}%" aria-valuemax="100"></div>
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h6 class="progress_title">4 stars</h6>
+                    </div>
+                    <div class="col-md-9 self-align-center">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width:{{ $product->ratingPercent(4) }}%" aria-valuemax="100"></div>
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h6 class="progress_title">3 stars</h6>
+                    </div>
+                    <div class="col-md-9 self-align-center">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{ $product->ratingPercent(3) }}%" aria-valuemax="100"></div>
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h6 class="progress_title">2 stars</h6>
+                    </div>
+                    <div class="col-md-9 self-align-center">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{ $product->ratingPercent(2) }}%" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h6 class="progress_title">1 stars</h6>
+                    </div>
+                    <div class="col-md-9 self-align-center">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{ $product->ratingPercent(1) }}%" aria-valuemax="100"></div>
+                    </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-4">
                 @if(auth()->check())
