@@ -221,17 +221,17 @@ Brand
                     </div>
                     <div class="body-text pt-3">
                         @if(Auth()->check())
-                                <a href="" class="like mr-2"><i class="far fa-thumbs-up"></i></a>{{ $review->getLikes() }}
-                                <a href="" class="like mr-2 ml-4"><i class="far fa-thumbs-down"></i><a>{{ $review->getDislikes() }}
+                            <a href="" class="like mr-2"><i class="far fa-thumbs-up"></i></a>{{ $review->getLikes() }}
+                            <a href="" class="like mr-2 ml-4"><i class="far fa-thumbs-down"></i><a>{{ $review->getDislikes() }}
                         @else
-                            <div class="container">
-                                <div class="row">
-                                    <div class="alert alert-danger auth-message" style="display:none; height:30px;" role="alert">
-                                        <p style="line-height:5px">You should be authenticated for completing this action<span class="ml-2 close-span" style="cursor:pointer"><strong>x</strong></span></p>
-                                    </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="alert alert-danger auth-message" style="display:none; height:30px;" role="alert">
+                                    <p style="line-height:5px">You should be authenticated for completing this action<span class="ml-2 close-span" style="cursor:pointer"><strong>x</strong></span></p>
                                 </div>
                             </div>
-                            <a href="javascript:void(0)" class="guest-like mr-2" style=":focus"><i class="far fa-thumbs-up"></i></a>{{ $review->getLikes() }}
+                        </div>
+                            <a href="javascript:void(0)" class="guest-like mr-2"><i class="far fa-thumbs-up"></i></a>{{ $review->getLikes() }}
                             <a href="javascript:void(0)" class="guest-like mr-2 ml-4"><i class="far fa-thumbs-down"></i><a>{{ $review->getDislikes() }}
                         @endif
                     </div>
@@ -252,7 +252,6 @@ Brand
 <script src="{{ asset('js/like.js') }}"></script>
 <script type="text/javascript">
     var token = '{{ Session::token() }}';
-    var urlLike = '{{ route('like') }}';
 </script>
 @endsection
 

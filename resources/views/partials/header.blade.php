@@ -24,6 +24,9 @@
         <div class="col-md-2">
             <button class="ml-4" style="border:hidden; overflow:hidden; outline:hidden; background-color:#007bff!important" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="navbar-brand dropdown-toggle"><i class="fas fa-user"></i></span></button>
                 <div class="dropdown-menu">
+                    <div class="row">
+                        <div class="arrow-up offset-md-5"></div>
+                    </div>
                     <div class="container text-center">
                         <a href="{{ route('login') }}"><button type="button" class="btn btn-warning text-dark">Sign-in now</button></a>
                         <hr>
@@ -60,11 +63,11 @@
             </div>
         </div>
         <div class="col-md-2">
-            <button class="ml-4" style="border:hidden; overflow:hidden; outline:hidden; background-color:#007bff!important" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="navbar-brand dropdown-toggle"><i class="fas fa-user"></i></span></button>
+            <button style="border:hidden; overflow:hidden; outline:hidden; background-color:#007bff!important" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="navbar-brand dropdown-toggle"><i class="fas fa-user"></i></span></button>
                 <div class="dropdown-menu">
                     <div class="container text-center">
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-                                Logout
+                            Logout
                         </a>    
                         <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}

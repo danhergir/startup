@@ -8,7 +8,7 @@ $('.like').on('click', function(event) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        url: urlLike,
+        url: '/like',
         data: {isLike: isLike, reviewId: reviewId, _token:token},
         success: function(json) {
             if(!json.error) location.reload(true);
@@ -17,12 +17,11 @@ $('.like').on('click', function(event) {
     })
 });
 
-$(document).ready(function(){
-    $(".guest-like").click(function(){
-        $(".auth-message").show();
-        $('.auth-message').delay(2000).hide(100);
-    });
-    $(".close-span").click(function(){
-        $(".auth-message").hide();
-    });
+$('.guest-like').click(function(){
+    $(this).parent().find('.auth-message').show();
+    $(this).parent().find('.auth-message').fadeOut(2000);
 });
+$('.close-span').click(function(){
+    $(this).closest(".body-text").find('.auth-message').hide();
+});
+
