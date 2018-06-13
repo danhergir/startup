@@ -141,7 +141,7 @@ Brand
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-md-3">
-                        <h6 class="progress_title">5 stars</h6>
+                        <h6 class="progress_title"><strong>5 stars</strong></h6>
                     </div>
                     <div class="col-md-9 self-align-center">
                     <div class="progress">
@@ -151,7 +151,7 @@ Brand
                 </div>
                 <div class="row">
                     <div class="col-md-3">
-                        <h6 class="progress_title">4 stars</h6>
+                        <h6 class="progress_title"><strong>4 stars</strong></h6>
                     </div>
                     <div class="col-md-9 self-align-center">
                     <div class="progress">
@@ -161,7 +161,7 @@ Brand
                 </div>
                 <div class="row">
                     <div class="col-md-3">
-                        <h6 class="progress_title">3 stars</h6>
+                        <h6 class="progress_title"><strong>3 stars</strong></h6>
                     </div>
                     <div class="col-md-9 self-align-center">
                     <div class="progress">
@@ -171,7 +171,7 @@ Brand
                 </div>
                 <div class="row">
                     <div class="col-md-3">
-                        <h6 class="progress_title">2 stars</h6>
+                        <h6 class="progress_title"><strong>2 stars</strong></h6>
                     </div>
                     <div class="col-md-9 self-align-center">
                     <div class="progress">
@@ -181,7 +181,7 @@ Brand
                 </div>
                 <div class="row">
                     <div class="col-md-3">
-                        <h6 class="progress_title">1 stars</h6>
+                        <h6 class="progress_title"><strong>1 stars</strong></h6>
                     </div>
                     <div class="col-md-9 self-align-center">
                     <div class="progress">

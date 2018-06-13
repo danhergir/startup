@@ -54,3 +54,15 @@ button:focus {outline:0 !important;}
     border-bottom: 5px solid black;
 }
 
+.user-dropdown .dropdown-menu {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 100% !important;
+}
+
+.user-dropdown .dropdown-menu {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 100% !important;
+}
+
