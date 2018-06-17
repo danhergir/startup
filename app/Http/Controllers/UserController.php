@@ -10,6 +10,7 @@ use Auth;
 
 class UserController extends Controller
 {
+    // User profile.
     public function userProfile() {
         $user = Auth::user();
         return view('user.profile', ['user' => $user]);
@@ -112,6 +113,8 @@ class UserController extends Controller
         return redirect()->back();
     }
 
+    // User reviews.
+
     public function getReviews(User $user)
     {   
         return view('user.review', ['user' => $user]);
@@ -128,4 +131,6 @@ class UserController extends Controller
 
         return redirect()->back();
     }
+
+    // User lists.
 }

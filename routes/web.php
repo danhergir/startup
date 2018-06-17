@@ -95,6 +95,9 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'ProductReviewController@postLike',
         'as' => 'like'
     ]);
+
+    //User Lists - Wish List - Save For Later
+    
 }); 
 
 Auth::routes();
