@@ -7,10 +7,12 @@ use App\ProductReview;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
+use App\Wishlist;
+use \DB;
 
 class UserController extends Controller
 {
-    // User profile.
+    // User profile. User account functions.
     public function userProfile() {
         $user = Auth::user();
         return view('user.profile', ['user' => $user]);
@@ -60,6 +62,8 @@ class UserController extends Controller
 
         return redirect()->back();
     }
+
+    //User addresses functions
 
     public function getAddress() {
         $user = Auth::user();
@@ -132,5 +136,18 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    // User lists.
+    //User wishlists functions
+
+    public function addWishlist(Wishlist $wishlist) {
+        $wishlist->user_id = request('user_id');
+        $wishlist->product_id = request('product_id');
+
+        $wishlist->save();
+
+        return redirect()->back();
+    }
+
+    public function getWishlist(User $user) {
+        return view('user.wishlist', compact('user'));
+    }
 }

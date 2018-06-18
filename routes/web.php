@@ -22,6 +22,9 @@ Route::get('/products/{product}', [
     'as' => 'welcome.show'
 ]);
 
+//Add products to wishlist
+
+
 
 Route::group(['middleware' => 'auth'], function() {
 
@@ -97,7 +100,16 @@ Route::group(['middleware' => 'auth'], function() {
     ]);
 
     //User Lists - Wish List - Save For Later
-    
+    Route::post('/addWishlist', [
+        'uses' => 'UserController@addWishlist',
+        'as' => 'product.wishlist'
+    ]);
+
+    Route::get('/user/wishlist', [
+        'uses' => 'UserController@getWishlist',
+        'as' => 'user.wishlist'
+    ]);
+
 }); 
 
 Auth::routes();

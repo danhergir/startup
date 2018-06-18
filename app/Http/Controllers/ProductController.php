@@ -7,6 +7,8 @@ use App\Product;
 use App\ProductReview;
 use App\User;
 
+
+
 class ProductController extends Controller
 {
     public function getIndex()

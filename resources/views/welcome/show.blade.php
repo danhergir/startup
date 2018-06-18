@@ -58,10 +58,22 @@ Brand
                 <h5 style="font-size:17px; font-weight:bold"><i class="fas fa-paper-plane mr-2"></i>Sale & shipping by Some-Brand</h5>
             </div>
             <hr>
+            @if(Auth::guest())
             <div class="wish-list">
                 <h6 style="font-weight:bold">Save it too...</h6>
-                <button class="btn btn-primary" style="border-radius: 20px;" type="submit" form="NoForm" value="Submit">Add to <i class="fas fa-heart"></i></button>
+                <button class="btn btn-primary" style="border-radius: 20px;" type="submit" value="Submit">Add to <i class="fas fa-heart"></i></button>
             </div>
+            @else
+            <div class="wish-list">
+                <h6 style="font-weight:bold">Save it too...</h6>
+                <form method="POST" action="{{ route('product.wishlist') }}">
+                    {{ csrf_field() }}
+                    <input type="hidden" value="{{ $product->id }}" name="product_id">
+                    <input type="hidden" value="{{ Auth::user()->id }}" name="user_id"> 
+                    <button class="btn btn-primary" style="border-radius: 20px;" type="submit" value="Submit">Add to <i class="fas fa-heart"></i></button>
+                </form>
+            </div>
+            @endif
             <hr>
             <div class="form error-form">
                 <h6 class="" style="font-weight:bold">Contact us</h6>

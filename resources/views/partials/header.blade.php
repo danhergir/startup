@@ -132,7 +132,7 @@
                             <ul class="dropdown-menu mt-2" style="width:200px">
                                 <div class="arrow-up"></div>
                                 <li class="ml-2">
-                                    <p><a class="text-secondary" href="{{ route('user.profile') }}">Wish list</a></p>
+                                    <p><a class="text-secondary" href="{{ route('user.wishlist') }}">Wish list</a></p>
                                     <p><a class="text-secondary" href="{{ route('user.account') }}">Save for later</a></p>
                                     <div class="dropdown-divider"></div>
                                 </li>
