@@ -138,16 +138,24 @@ class UserController extends Controller
 
     //User wishlists functions
 
-    public function addWishlist(Wishlist $wishlist) {
-        $wishlist->user_id = request('user_id');
-        $wishlist->product_id = request('product_id');
+    public function addWishlist(Wishlist $wishlist) {        
+        $userId = request('user_id');
+        $productId = request('product_id');
 
-        $wishlist->save();
+        $found = Wishlist::where('user_id', $userId)->where('product_id', $productId)->count();
+
+        if($found == 0) {
+            $wishlist->user_id = $userId;
+            $wishlist->product_id = $productId;
+            $wishlist->save();
+        }
 
         return redirect()->back();
     }
 
     public function getWishlist(User $user) {
-        return view('user.wishlist', compact('user'));
+        $products = DB::table('wishlists')->where('user_id', Auth::user()->id)->leftJoin('products', 'wishlists.product_id', 'products.id')->get();
+
+        return view('user.wishlist', compact('user', 'products'));
     }
 }

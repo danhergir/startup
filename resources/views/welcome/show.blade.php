@@ -61,7 +61,7 @@ Brand
             @if(Auth::guest())
             <div class="wish-list">
                 <h6 style="font-weight:bold">Save it too...</h6>
-                <button class="btn btn-primary" style="border-radius: 20px;" type="submit" value="Submit">Add to <i class="fas fa-heart"></i></button>
+                <button class="btn btn-primary" onclick="window.location='{{ route('login') }}'" style="border-radius: 20px;">Add to <i class="fas fa-heart"></i></button>
             </div>
             @else
             <div class="wish-list">

@@ -2,6 +2,7 @@
 
 namespace App;
 use App\ProductReview;
+use \DB;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,12 +15,12 @@ class ProductReview extends Model
     }
 
     public function getLikes() {    
-        $count = \DB::table('likes')->where('review_id', $this->id)->where('like', 1)->count();
+        $count = DB::table('likes')->where('review_id', $this->id)->where('like', 1)->count();
         return $count;
     }
 
     public function getDislikes() {
-        $count = \DB::table('likes')->where('review_id', $this->id)->where('like', 0)->count();
+        $count = DB::table('likes')->where('review_id', $this->id)->where('like', 0)->count();
         return $count;
     }
 }
