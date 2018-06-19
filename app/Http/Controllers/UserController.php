@@ -154,8 +154,20 @@ class UserController extends Controller
     }
 
     public function getWishlist(User $user) {
-        $products = DB::table('wishlists')->where('user_id', Auth::user()->id)->leftJoin('products', 'wishlists.product_id', 'products.id')->get();
+        $user = Auth::user();
+        $products = DB::table('products')->join('wishlists','products.id','wishlists.product_id')->where('user_id', Auth::user()->id)->get();
 
         return view('user.wishlist', compact('user', 'products'));
+    }
+
+    public function deleteWishlist() {
+        $wishlist_id = request('wishlist_id');        
+        $wishlist = Wishlist::find($wishlist_id);
+    
+        if(!empty($wishlist) && $wishlist->user_id === Auth::user()->id){
+           $wishlist->delete();
+        }
+    
+        return redirect()->back();
     }
 }

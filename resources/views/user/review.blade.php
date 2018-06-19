@@ -11,7 +11,7 @@ Account
     </div>
     <div class="col-md-8">
         <h3 class="pt-3">Your comments & reviews</h3>
-        @foreach(Auth::user()->reviews->chunk(3) as $reviews)
+        @foreach(Auth::user()->reviews->chunk(2) as $reviews)
         <div class="row">
         @foreach($reviews as $review)
             <div class="comment mt-5 border border-dark pl-3 pt-3 pb-3 mb-3 mr-5 rounded col-md-5">
@@ -24,7 +24,7 @@ Account
                             <form class="float-right" method="post" action="{{ route('user.deleteReview') }}">
                                 {{ csrf_field() }}
                                 <input type='hidden' value='{{ $review->id }}' name='review_id'/>
-                                <button class="text-dark mr-2" style="cursor:pointer; border:hidden" type="submit"><u><i class="fas fa-times"></i></u></button>
+                                <button class="text-dark mr-2" style="cursor:pointer; border:hidden" type="submit"><i class="fas fa-times"></i></button>
                             </form> 
                         </div>
                     </div>

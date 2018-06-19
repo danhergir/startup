@@ -110,6 +110,10 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'user.wishlist'
     ]);
 
+    Route::post('/user/wishlist/delete' , [
+        'uses' => 'UserController@deleteWishlist',
+        'as' => 'user.deleteWishlist'
+    ]);
 }); 
 
 Auth::routes();
