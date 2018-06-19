@@ -49,7 +49,16 @@
                 </div>
             </div>
             @empty
-                <h6>There's no products</h6>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-primary text-center border rounded" style="background-color:#9bc2e6">
+                        <h5 class="mt-2 mb-3">Add products to your wishlist.</h5>
+                        <p class="text-dark font-weight-bold">Visit any product and click on the <button class="btn btn-primary" style="border-radius:20px">Add to <i class="fas fa-heart"></i></button></p>
+                        <p class="text-dark font-weight-bold">You could create your own list of your favorite products and save it for later.</p>
+                        <a href="{{ route('welcome.index') }}">Try it now. Go on shopping.</a>
+                    </div>
+                </div>
+            </div>
             @endforelse
             </div>
         </div>
