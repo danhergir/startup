@@ -24,3 +24,5 @@ $('.guest-like').click(function(){
 $('.close-span').click(function(){
     $(this).closest(".body-text").find('.auth-message').hide();
 });
+
+    

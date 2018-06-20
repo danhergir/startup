@@ -100,14 +100,14 @@ Route::group(['middleware' => 'auth'], function() {
     ]);
 
     //User Lists - Wish List - Save For Later
+    Route::get('/user/lists', [
+        'uses' => 'UserController@getLists',
+        'as' => 'user.lists'
+    ]);
+    
     Route::post('/addWishlist', [
         'uses' => 'UserController@addWishlist',
         'as' => 'product.wishlist'
-    ]);
-
-    Route::get('/user/wishlist', [
-        'uses' => 'UserController@getWishlist',
-        'as' => 'user.wishlist'
     ]);
 
     Route::post('/user/wishlist/delete' , [

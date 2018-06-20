@@ -51,7 +51,7 @@
                 <div class="col-md">
                     <div class="col-md header-dropdown">
                         <div class="dropdown btn-group">
-                            <a class="navbar-brand" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="navbar-brand button-guest" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-heart"></i>
                             </a>
                             <ul class="dropdown-menu mt-2" style="width:200px">
@@ -126,18 +126,18 @@
                 <div class="col-md">
                     <div class="col-md header-dropdown">
                         <div class="dropdown btn-group">
-                            <a class="navbar-brand" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="navbar-brand heart-user" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-heart"></i>
                             </a>
                             <ul class="dropdown-menu mt-2" style="width:200px">
                                 <div class="arrow-up"></div>
                                 <li class="ml-2">
-                                    <p><a class="text-secondary" href="{{ route('user.wishlist') }}">Wish list</a></p>
-                                    <p><a class="text-secondary" href="{{ route('user.account') }}">Save for later</a></p>
+                                    <p><a class="text-secondary" href="#">Wish list</a></p>
+                                    <p><a class="text-secondary" href="{{ route('user.lists') }}">Save for later</a></p>
                                     <div class="dropdown-divider"></div>
                                 </li>
                                 <li class="ml-2">
-                                    <h6><a href="#" class="text-dark">View all my lists</a></h6>
+                                    <h6><a href="{{ route('user.lists') }}" class="text-dark">View all my lists</a></h6>
                                 </li>
                             </ul>
                         </div>
@@ -153,13 +153,17 @@
 @endif
 
 @section('scripts')
-<script>
-    $('.button-guest').click(function() {
-    window.location.replace('/login');
+<script type="text/javascript">
+$('.button-guest').click(function() {
+window.location.replace('/login');
 })
 
-    $('.button-user').click(function() {
-    window.location.replace('/user/profile');
+$('.button-user').click(function() {
+window.location.replace('/user/profile');
+})
+
+$('.heart-user').click(function() {
+window.location.replace('/user/lists');
 })
 </script>
 @endsection
