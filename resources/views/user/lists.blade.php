@@ -7,7 +7,12 @@
 @section('content')
 <div class="row">
     <div class="col-md-3">
-        
+        <div class="card offset-md-2">
+            <div class="card-body bg-white pt-1 pb-1 border-bottom">
+                <h5>Welcome {{ Auth::user()->first_name }}</h5>
+                <a href="{{ route('user.profile') }}">Visit your profile</a>
+            </div>
+        </div>
     </div>
     <div class="col-md-8">
         <div class="card">
@@ -16,7 +21,7 @@
                 <hr>
             </div>
         </div>
-        <ul class="nav nav-pills mb-3 ml-4" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills ml-4 border-bottom pb-3" id="pills-tab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Wish list</a>
             </li>

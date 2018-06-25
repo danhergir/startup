@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-md pl-4 header-dropdown">
                     <div class="dropdown btn-group">
-                        <a class="navbar-brand button-guest" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="navbar-brand" href="{{ route('user.profile') }}" id="bd-versions" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user"></i>
                         </a>
                         <ul class="dropdown-menu mt-2" style="width:200px">
@@ -40,10 +40,10 @@
                                 <div class="dropdown-divider"></div>
                             </li>
                             <li class="ml-2">
-                                <p><a class="text-secondary" href="{{ route('login') }}">Purchases</a></p>
-                                <p><a class="text-secondary" href="{{ route('login') }}">Manage Account</a></p>
-                                <p><a class="text-secondary" href="{{ route('login') }}">Shipping Address</a></p>
-                                <p><a class="text-secondary" href="{{ route('login') }}">Comments & reviews</a></p>
+                                <p><a class="text-secondary" href="{{ route('user.profile') }}">Purchases</a></p>
+                                <p><a class="text-secondary" href="{{ route('user.account') }}">Manage Account</a></p>
+                                <p><a class="text-secondary" href="{{ route('user.address') }}">Shipping Address</a></p>
+                                <p><a class="text-secondary" href="{{ route('user.review') }}">Comments & reviews</a></p>
                             </li>
                         </ul>
                     </div>
@@ -51,13 +51,13 @@
                 <div class="col-md">
                     <div class="col-md header-dropdown">
                         <div class="dropdown btn-group">
-                            <a class="navbar-brand button-guest" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="navbar-brand" href="{{ route('user.lists') }}" id="bd-versions" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-heart"></i>
                             </a>
                             <ul class="dropdown-menu mt-2" style="width:200px">
                                 <div class="arrow-up"></div>
                                 <li class="ml-2">
-                                    <p><a class="text-secondary" href="{{ route('login') }}">Wish list</a></p>
+                                    <p><a class="text-secondary" href="{{ route('user.lists') }}">Wish list</a></p>
                                     <p><a class="text-secondary" href="{{ route('login') }}">Save for later</a></p>
                                     <div class="dropdown-divider"></div>
                                 </li>
@@ -102,7 +102,7 @@
             <div class="row">
                 <div class="col-md pl-4 header-dropdown">
                     <div class="dropdown btn-group">
-                        <a class="navbar-brand button-user" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="navbar-brand" href="{{ route('user.profile') }}" id="bd-versions" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user"></i>
                         </a>
                         <ul class="dropdown-menu mt-2" style="width:200px">
@@ -126,8 +126,8 @@
                 <div class="col-md">
                     <div class="col-md header-dropdown">
                         <div class="dropdown btn-group">
-                            <a class="navbar-brand heart-user" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-heart"></i>
+                            <a class="navbar-brand" href="{{ route('user.lists') }}" id="bd-versions" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-heart"></i>
                             </a>
                             <ul class="dropdown-menu mt-2" style="width:200px">
                                 <div class="arrow-up"></div>
@@ -144,7 +144,7 @@
                     </div>
                 </div>
                 <div class="col-md">
-                <span><a class="navbar-brand" href="#"><i class="fas fa-shopping-cart"></i></a></span>
+                <span><a class="navbar-brand" href="{{ route('user.cart') }}"><i class="fas fa-shopping-cart"></i></a></span>
                 </div>
             </div>
         </div>
@@ -152,19 +152,4 @@
 </div>
 @endif
 
-@section('scripts')
-<script type="text/javascript">
-$('.button-guest').click(function() {
-window.location.replace('/login');
-})
-
-$('.button-user').click(function() {
-window.location.replace('/user/profile');
-})
-
-$('.heart-user').click(function() {
-window.location.replace('/user/lists');
-})
-</script>
-@endsection
 

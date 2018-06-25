@@ -171,4 +171,8 @@ class UserController extends Controller
     
         return redirect()->back();
     }
+
+    public function userCart(User $user) {
+        return view('user.cart', compact('user'));
+    }
 }

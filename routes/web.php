@@ -114,6 +114,12 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'UserController@deleteWishlist',
         'as' => 'user.deleteWishlist'
     ]);
+
+    //User Cart - Checkout
+    Route::get('/user/cart' , [
+        'uses' => 'UserController@userCart',
+        'as' => 'user.cart'
+    ]);
 }); 
 
 Auth::routes();
