@@ -51,7 +51,7 @@ Brand
                     <option value="11">11</option>
                     <option value="12">12</option>
                 </select>
-                <button class="btn btn-primary" style="border-radius: 20px;" type="submit" form="NoForm" value="Submit">Add to <i class="fas fa-shopping-cart"></i></button>
+                <a class="btn btn-primary" style="border-radius: 20px;" href="{{ route('user.addCart', ['id' => $product->id]) }}" role="button">Add to <i class="fas fa-shopping-cart"></i></a>
             </div>
             <hr>
             <div class="product-shipping">

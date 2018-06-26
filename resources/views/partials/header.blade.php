@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="col-md">
-                <span><a class="navbar-brand" href="#"><i class="fas fa-shopping-cart"></i></a></span>
+                <span><a class="navbar-brand" href="{{ route('user.cart') }}"><i class="fas fa-shopping-cart"></i></a></span>
                 </div>
             </div>
         </div>

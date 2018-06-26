@@ -117,8 +117,13 @@ Route::group(['middleware' => 'auth'], function() {
 
     //User Cart - Checkout
     Route::get('/user/cart' , [
-        'uses' => 'UserController@userCart',
+        'uses' => 'ProductController@getCart',
         'as' => 'user.cart'
+    ]);
+
+    Route::get('/product/cart/{id}', [
+        'uses' => 'ProductController@addCart',
+        'as' => 'user.addCart'
     ]);
 }); 
 
