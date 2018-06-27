@@ -35,14 +35,17 @@ class ProductController extends Controller
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        return view('user.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+        $products = $cart->items;
+        return view('user.cart', ['cart' => $cart, 'products' => $products, 'totalPrice' => $cart->totalPrice]);
     }
 
-    public function addCart(Request $request, $id ) {
+    public function addCart(Request $request) {
+        $id = request('product_id');
+        $qty = request('qty');
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->add($product, $product->id);
+        $cart->add($product, $id, $qty);
 
         $request->session()->put('cart', $cart);
         

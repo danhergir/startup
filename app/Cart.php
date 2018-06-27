@@ -20,7 +20,7 @@ class Cart extends Model
         }
     }
 
-    public function add($item, $id)
+    public function add($item, $id, $quantity = 0)
     {
         $storedItem = ['qty' => 0, 'price' => $item->price, 'item' => $item];
         if ($this->items)
@@ -30,10 +30,11 @@ class Cart extends Model
                 $storedItem = $this->items[$id];
             }
         }
-        $storedItem['qty']++;
+        $storedItem['qty'] += $quantity;
         $storedItem['price'] = $item->price * $storedItem['qty'];
         $this->items[$id] = $storedItem;
-        $this->totalQty++;
+        $this->totalQty += $quantity;
         $this->totalPrice += $item->price;
+
     }
 }

@@ -45,7 +45,11 @@
                                     <a target="_blank" href="{{ route('create.review', ['product' => $product->product_id]) }}" class="text-primary">Add a review</a>
                                 </div>
                                 <div class="card-body mt-4 pl-4">
-                                    <button style="border-radius:20px; width:100px" class="btn btn-primary mb-4">Add to <i class="fas fa-shopping-cart"></i></button>
+                                    <form action="{{ route('user.addCart') }}">
+                                        <input type="hidden" name="qty" id="qty" value="1">
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <button style="border-radius:20px; width:100px" class="btn btn-primary mb-4">Add to <i class="fas fa-shopping-cart"></i></button> 
+                                    </form>
                                     <form method="POST" action="{{ route('user.deleteWishlist') }}">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="wishlist_id" value="{{ $product->id }}">

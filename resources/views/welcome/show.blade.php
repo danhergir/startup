@@ -36,22 +36,25 @@ Brand
             <h6 style="font-weight:bold" class="pt-2">Free 2-day shipping </h6>
             <hr>
             <div class="product-sell product">
-                <h6 class="text-muted">Qty :</h6>
-                <select name="quantity" id="qty" class="mr-2">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
-                <a class="btn btn-primary" style="border-radius: 20px;" href="{{ route('user.addCart', ['id' => $product->id]) }}" role="button">Add to <i class="fas fa-shopping-cart"></i></a>
+                <form action="{{ route('user.addCart') }}">
+                    <h6 class="text-muted">Qty :</h6>
+                    <select name="qty" id="qty" class="mr-2">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    <button type="submit" class="btn btn-primary" style="border-radius: 20px;" role="button">Add to <i class="fas fa-shopping-cart"></i></button>        
+                </form>
             </div>
             <hr>
             <div class="product-shipping">

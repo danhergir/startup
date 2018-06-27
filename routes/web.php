@@ -121,7 +121,7 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'user.cart'
     ]);
 
-    Route::get('/product/cart/{id}', [
+    Route::get('/product/cart', [
         'uses' => 'ProductController@addCart',
         'as' => 'user.addCart'
     ]);
