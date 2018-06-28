@@ -159,8 +159,6 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    
-
     public function deleteWishlist() {
         $wishlist_id = request('wishlist_id');        
         $wishlist = Wishlist::find($wishlist_id);

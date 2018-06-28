@@ -69,7 +69,11 @@
                     </div>
                 </div>
                 <div class="col-md">
-                <span><a class="navbar-brand" href="{{ route('user.cart') }}"><i class="fas fa-shopping-cart"></i></a></span>
+                    <a class="navbar-brand" href="{{ route('user.cart') }}">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge badge-pill badge-warning count-notif">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
+                        <span class="sr-only">(current)</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -144,7 +148,11 @@
                     </div>
                 </div>
                 <div class="col-md">
-                <span><a class="navbar-brand" href="{{ route('user.cart') }}"><i class="fas fa-shopping-cart"></i></a></span>
+                    <a class="navbar-brand" href="{{ route('user.cart') }}">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge badge-pill badge-warning count-notif">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
+                        <span class="sr-only">(current)</span>
+                    </a>
                 </div>
             </div>
         </div>

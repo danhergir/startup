@@ -7,6 +7,7 @@ use App\Product;
 use App\ProductReview;
 use App\User;
 use App\Cart;
+use App\SaveLater;
 use Session;
 
 class ProductController extends Controller
@@ -36,7 +37,7 @@ class ProductController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $products = $cart->items;
-        return view('user.cart', ['cart' => $cart, 'products' => $products, 'totalPrice' => $cart->totalPrice]);
+        return view('user.cart', ['cart' => $cart, 'products' => $products]);
     }
 
     public function addCart(Request $request) {
@@ -51,4 +52,23 @@ class ProductController extends Controller
         
         return redirect()->route('user.cart');
     }
+
+    public function removeItem(Request $request)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $id = request('product_id');
+        $cart = new Cart($oldCart); 
+        $cart->removeItem($id);
+
+        if(count($cart->items) > 0)
+        {
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart');
+        }
+
+        return redirect()->back();
+    }
+
+    // Save for later list
 }

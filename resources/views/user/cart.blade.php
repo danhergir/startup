@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-
+@if(empty($cart) && empty($products))
+    There's nothing in your cart
+@else
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -48,8 +50,16 @@
                                     </select>
                                 </p>
                                 -->
-                                <a href="#" class="mr-3 text-dark"><u>Remove</u></a>
-                                <a href="#" class="text-dark"><u>Save for later</u></a>
+                                <div class="form-buttons d-inline-flex">
+                                    <form method="POST" action="{{ route('user.removeItem') }}" id="item-remove">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="product_id" value="{{ $product['item']->id }}">
+                                        <a style="cursor:pointer" class="text-dark mr-2" onclick="document.getElementById('item-remove').submit()"><u>Remove</u></button>
+                                    </form>
+                                    <form action="">
+                                        <a href="#" class="text-dark"><u>Save for later</u></a>
+                                    </form>
+                                </div>
                             </div>
                             <div class="card-body mt-4 mr-4">
                                 <h5><strong>${{ $product['item']->price }}</strong></h5>
@@ -83,4 +93,5 @@
         </div>
     </div>
 </div>
+@endif 
 @endsection

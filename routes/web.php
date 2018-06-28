@@ -125,6 +125,11 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'ProductController@addCart',
         'as' => 'user.addCart'
     ]);
+
+    Route::post('/product/cart/remove', [
+        'uses' => 'ProductController@removeItem',
+        'as' => 'user.removeItem'
+    ]);
 }); 
 
 Auth::routes();
