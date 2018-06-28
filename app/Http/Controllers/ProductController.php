@@ -37,7 +37,16 @@ class ProductController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $products = $cart->items;
-        return view('user.cart', ['cart' => $cart, 'products' => $products]);
+
+        if(!Session::has('saveLater'))
+        {
+            return view('user.cart');
+        }
+        $oldSaveLater = Session::get('saveLater');
+        $saveLater = new SaveLater($oldSaveLater);
+        $articles = $saveLater->articles;
+
+        return view('user.cart', ['cart' => $cart, 'products' => $products, 'articles' => $articles]);
     }
 
     public function addCart(Request $request) {
@@ -71,4 +80,15 @@ class ProductController extends Controller
     }
 
     // Save for later list
+    public function addSaveLater(Request $request) {
+        $id = request('product_id');
+        $product = Product::find($id);
+        $oldSaveLater = Session::has('saveLater') ? Session::get('saveLater') : null;
+        $saveLater = new SaveLater($oldSaveLater);
+        $saveLater->add($product, $id);
+
+        $request->session()->put('saveLater', $saveLater);
+        
+        return redirect()->route('user.cart');
+    }
 }

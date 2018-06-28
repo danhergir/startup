@@ -130,6 +130,12 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'ProductController@removeItem',
         'as' => 'user.removeItem'
     ]);
+
+    //User Save for later
+    Route::post('/product/cart/save-later', [
+        'uses' => 'ProductController@addSaveLater',
+        'as' => 'user.saveLater'
+    ]);
 }); 
 
 Auth::routes();

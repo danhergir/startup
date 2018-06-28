@@ -37,6 +37,7 @@ Brand
             <hr>
             <div class="product-sell product">
                 <form action="{{ route('user.addCart') }}">
+                    {{ csrf_field() }}
                     <h6 class="text-muted">Qty :</h6>
                     <select name="qty" id="qty" class="mr-2">
                         <option value="1">1</option>
