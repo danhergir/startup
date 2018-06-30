@@ -10,8 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Authentication routes
+Auth::routes();
 
-
+//Layout and meaning views
 Route::get('/', [
     'uses' => 'ProductController@getIndex',
     'as' => 'welcome.index'
@@ -22,8 +24,27 @@ Route::get('/products/{product}', [
     'as' => 'welcome.show'
 ]);
 
-//Add products to wishlist
+//User Cart - Checkout
+Route::get('/user/cart' , [
+    'uses' => 'ProductController@getCart',
+    'as' => 'user.cart'
+]);
 
+Route::get('/product/cart', [
+    'uses' => 'ProductController@addCart',
+    'as' => 'user.addCart'
+]);
+
+Route::post('/product/cart/remove', [
+    'uses' => 'ProductController@removeItem',
+    'as' => 'user.removeItem'
+]);
+
+//User Save for later
+Route::post('/product/cart/save-later', [
+    'uses' => 'ProductController@addSaveLater',
+    'as' => 'user.saveLater'
+]);
 
 
 Route::group(['middleware' => 'auth'], function() {
@@ -114,30 +135,8 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'UserController@deleteWishlist',
         'as' => 'user.deleteWishlist'
     ]);
-
-    //User Cart - Checkout
-    Route::get('/user/cart' , [
-        'uses' => 'ProductController@getCart',
-        'as' => 'user.cart'
-    ]);
-
-    Route::get('/product/cart', [
-        'uses' => 'ProductController@addCart',
-        'as' => 'user.addCart'
-    ]);
-
-    Route::post('/product/cart/remove', [
-        'uses' => 'ProductController@removeItem',
-        'as' => 'user.removeItem'
-    ]);
-
-    //User Save for later
-    Route::post('/product/cart/save-later', [
-        'uses' => 'ProductController@addSaveLater',
-        'as' => 'user.saveLater'
-    ]);
 }); 
 
-Auth::routes();
+
 
 
