@@ -30,22 +30,14 @@ class ProductController extends Controller
 
     public function getCart()
     {
-        if(!Session::has('cart'))
-        {
-            return view('user.cart');
-        }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $products = $cart->items;
 
-        if(!Session::has('saveLater'))
-        {
-            return view('user.cart');
-        }
         $oldSaveLater = Session::get('saveLater');
         $saveLater = new SaveLater($oldSaveLater);
         $articles = $saveLater->articles;
-
+        
         return view('user.cart', ['cart' => $cart, 'products' => $products, 'articles' => $articles]);
     }
 
@@ -88,6 +80,57 @@ class ProductController extends Controller
         $saveLater->add($product, $id);
 
         $request->session()->put('saveLater', $saveLater);
+
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart); 
+        $cart->removeItem($id);
+
+        if(count($cart->items) > 0)
+        {
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart');
+        }
+        
+        return redirect()->route('user.cart');
+    }
+
+    public function removeSaveLater(Request $request) {
+        $oldSaveLater = Session::has('saveLater') ? Session::get('saveLater') : null;
+        $id = request('product_id');
+        $saveLater = new SaveLater($oldSaveLater); 
+        $saveLater->remove($id);
+
+        if(count($saveLater->articles) > 0)
+        {
+            Session::put('saveLater', $saveLater);
+        } else {
+            Session::forget('saveLater');
+        }
+
+        return redirect()->back();
+    }
+
+    public function moveCart(Request $request) {
+        $id = request('product_id');
+        $qty = request('qty');
+        $product = Product::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $id, $qty);
+
+        $request->session()->put('cart', $cart);
+
+        $oldSaveLater = Session::has('saveLater') ? Session::get('saveLater') : null;
+        $saveLater = new SaveLater($oldSaveLater); 
+        $saveLater->remove($id);
+
+        if(count($saveLater->articles) > 0)
+        {
+            Session::put('saveLater', $saveLater);
+        } else {
+            Session::forget('saveLater');
+        }
         
         return redirect()->route('user.cart');
     }

@@ -26,4 +26,9 @@ class SaveLater extends Model
         }
         $this->articles[$id] = $storedArticle;
     }
+
+    public function remove($id)
+    {
+        unset($this->articles[$id]);
+    }
 }

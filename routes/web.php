@@ -10,10 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Authentication routes
-Auth::routes();
 
-//Layout and meaning views
+//Welcome and product view
 Route::get('/', [
     'uses' => 'ProductController@getIndex',
     'as' => 'welcome.index'
@@ -35,6 +33,11 @@ Route::get('/product/cart', [
     'as' => 'user.addCart'
 ]);
 
+Route::get('/product/cart/move-cart', [
+    'uses' => 'ProductController@moveCart',
+    'as' => 'user.moveCart'
+]);
+
 Route::post('/product/cart/remove', [
     'uses' => 'ProductController@removeItem',
     'as' => 'user.removeItem'
@@ -44,6 +47,11 @@ Route::post('/product/cart/remove', [
 Route::post('/product/cart/save-later', [
     'uses' => 'ProductController@addSaveLater',
     'as' => 'user.saveLater'
+]);
+
+Route::post('/product/cart/save-later/remove', [
+    'uses' => 'ProductController@removeSaveLater',
+    'as' => 'user.removeSaveLater'
 ]);
 
 
@@ -137,6 +145,6 @@ Route::group(['middleware' => 'auth'], function() {
     ]);
 }); 
 
-
+Auth::routes();
 
 
