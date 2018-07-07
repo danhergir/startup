@@ -24,7 +24,7 @@
                                 <img class="card-img-top img-fluid" style="padding:10px" src="{{ $product['item']->imageUrl }}" alt="Card image cap"></a>
                             </div>
                             <div class="card-body mt-4">
-                                <a href="#" class="text-dark"><h5>{{ $product['item']->title }}</h5></a>
+                                <a href="{{ route('welcome.show', ['product' => $product['item']->id] ) }}" class="text-dark"><h5>{{ $product['item']->title }}</h5></a>
                                 <h6 class="mt-2">Qty</h6>
                                 <p>
                                     <select name="quantity" id="quantity">

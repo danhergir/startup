@@ -17,15 +17,15 @@ class ProductReviewController extends Controller
         $is_like = $request['isLike'] === 'true';
         $update = false;
         $review = ProductReview::find($review_id);
-        if (!$review) {
+        if(!$review) {
             return null;
         }
         $user = Auth::user();
         $like = $user->likes()->where('review_id', $review_id)->first();
-        if ($like) {
+        if($like) {
             $already_like = $like->like;
             $update = true;
-            if ($already_like == $is_like) {
+            if($already_like == $is_like) {
                 $like->delete();
                 return null;
             }
@@ -41,5 +41,6 @@ class ProductReviewController extends Controller
             $like->save();
         }
         return null;
+        
     }
 }
