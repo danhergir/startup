@@ -54,17 +54,6 @@
                             <a class="navbar-brand" href="{{ route('user.lists') }}" id="bd-versions" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-heart"></i>
                             </a>
-                            <ul class="dropdown-menu mt-2" style="width:200px">
-                                <div class="arrow-up"></div>
-                                <li class="ml-2">
-                                    <p><a class="text-secondary" href="{{ route('user.lists') }}">Wish list</a></p>
-                                    <p><a class="text-secondary" href="{{ route('login') }}">Save for later</a></p>
-                                    <div class="dropdown-divider"></div>
-                                </li>
-                                <li class="ml-2">
-                                    <p><a class="text-secondary" href="#"></a>View all my lists</p>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -133,17 +122,6 @@
                             <a class="navbar-brand" href="{{ route('user.lists') }}" id="bd-versions" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-heart"></i>
                             </a>
-                            <ul class="dropdown-menu mt-2" style="width:200px">
-                                <div class="arrow-up"></div>
-                                <li class="ml-2">
-                                    <p><a class="text-secondary" href="#">Wish list</a></p>
-                                    <p><a class="text-secondary" href="{{ route('user.lists') }}">Save for later</a></p>
-                                    <div class="dropdown-divider"></div>
-                                </li>
-                                <li class="ml-2">
-                                    <h6><a href="{{ route('user.lists') }}" class="text-dark">View all my lists</a></h6>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>

@@ -25,9 +25,6 @@
             <li class="nav-item">
                 <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Wish list</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="pills-save-for-later-tab" data-toggle="pill" href="#pills-save-for-later" role="tab" aria-controls="pills-save-for-later" aria-selected="false">Save for later</a>
-            </li>
         </ul>
         <div class="tab-content ml-3" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -72,9 +69,6 @@
                         @endforelse
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane fade ml-3" id="pills-save-for-later" role="tabpanel" aria-labelledby="pills-save-for-later-tab">
-                <h6>Not working yet</h6>
             </div>
         </div>
     </div>   
