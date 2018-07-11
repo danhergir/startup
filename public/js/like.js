@@ -27,11 +27,6 @@ $('.dislike').on('click', function(event) {
     })
 });
 
-
-
-
-
-
 $('.guest-like').click(function(){
     $(this).parent().find('.auth-message').show();
     $(this).parent().find('.auth-message').fadeOut(2000);
