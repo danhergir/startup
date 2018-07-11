@@ -54,10 +54,11 @@ Route::post('/product/cart/save-later/remove', [
     'as' => 'user.removeSaveLater'
 ]);
 
+Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
 
-    /* User Routes related with his profile */
+    // User Routes related with his profile 
     Route::get('/user/profile', [
         'uses' => 'UserController@userProfile',
         'as' => 'user.profile'
@@ -82,7 +83,8 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'UserController@passwordUpdate',
         'as' => 'user.passwordUpdate'
     ]);
-
+    
+    //User address functionality
     Route::get('/user/profile/address', [
         'uses' => 'UserController@getAddress',
         'as' => 'user.address'
@@ -98,6 +100,7 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'user.deleteAddress',
     ]);
 
+    //User reviews system
     Route::get('/user/profile/reviews' , [
         'uses' => 'UserController@getReviews',
         'as' => 'user.review'
@@ -108,11 +111,6 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'user.deleteReview'
     ]);
 
-    Route::get('/logout', [
-        'uses' => '\App\Http\Controllers\Auth\LoginController@logout',
-        'as' => 'logout'
-    ]);
-    
     Route::get('/product/review/form/{product}', [
         'uses' => 'ProductController@createFormReview',
         'as' => 'create.review'
@@ -123,11 +121,16 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'review.store'
     ]);
 
+    //Like functionality
     Route::post('/like', [
         'uses' => 'ProductReviewController@postLike',
         'as' => 'like'
     ]);
 
+    Route::get('/logout', [
+        'uses' => '\App\Http\Controllers\Auth\LoginController@logout',
+        'as' => 'logout'
+    ]);
     //User Lists - Wish List - Save For Later
     Route::get('/user/lists', [
         'uses' => 'UserController@getLists',
@@ -143,8 +146,14 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'UserController@deleteWishlist',
         'as' => 'user.deleteWishlist'
     ]);
+
+    //User checkout
+    Route::get('/user/checkout', [
+        'uses' => 'ProductController@checkout',
+        'as' => 'user.checkout'
+    ]);
 }); 
 
-Auth::routes();
+
 
 

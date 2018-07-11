@@ -25,7 +25,7 @@
                             </div>
                             <div class="card-body mt-4">
                                 <a href="{{ route('welcome.show', ['product' => $product['item']->id] ) }}" class="text-dark"><h5>{{ $product['item']->title }}</h5></a>
-                                <h6 class="mt-2">Qty</h6>
+                                <h6 class="mt-2">Qty:</h6>
                                 <p>
                                     <select name="quantity" id="quantity">
                                         <option value="#">{{$product['qty']}}</option>

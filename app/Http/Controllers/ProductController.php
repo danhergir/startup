@@ -134,4 +134,9 @@ class ProductController extends Controller
         
         return redirect()->route('user.cart');
     }
+
+    //Checkout 
+    public function checkout() {
+        return view('user.checkout');
+    }
 }
