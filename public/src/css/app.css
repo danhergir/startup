@@ -76,4 +76,13 @@ button:focus {outline:0 !important;}
     margin-top: -20px;
     font-size:13px;
 }
+
+.fl-checkout {
+    box-shadow:0 2px 3px 0 rgba(0,0,0,.16); 
+    margin-top:60px; 
+    height:200px;
+    position:fixed;
+    top:60px;
+    left:900px;
+}
   
