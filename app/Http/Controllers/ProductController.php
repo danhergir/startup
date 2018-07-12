@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Product;
 use App\ProductReview;
 use App\User;
@@ -137,6 +138,9 @@ class ProductController extends Controller
 
     //Checkout 
     public function checkout() {
-        return view('user.checkout');
+        $user = Auth::user();
+        $addresses = $user->addresses;
+
+        return view('user.checkout', ['addresses' => $addresses]);
     }
 }

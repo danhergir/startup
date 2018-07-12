@@ -265,7 +265,7 @@ Brand
 @endsection
 
 @section('scripts')
-<script src="{{ asset('js/like.js') }}"></script>
+<script src="{{ asset('js/mean.js') }}"></script>
 <script type="text/javascript">
     var token = '{{ Session::token() }}';
     var urlLike = '{{ route('like') }}';

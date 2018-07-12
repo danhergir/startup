@@ -18,7 +18,7 @@ class ProductReviewController extends Controller
         $update = false;
         $review = ProductReview::find($review_id);
         if(!$review) {
-            return null;
+            return null;    
         }
         $user = Auth::user();
         $like = $user->likes()->where('review_id', $review_id)->first();
