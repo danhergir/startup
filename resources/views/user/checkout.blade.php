@@ -18,8 +18,6 @@ Checkout
                 <div class="col-md-4">
                     <a class="navbar-brand float-right" href="{{ route('user.cart') }}">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="badge badge-pill badge-warning count-notif">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
-                        <span class="sr-only">(current)</span>
                     </a>
                 </div>
             </div>
@@ -187,6 +185,7 @@ Checkout
 </div>
 @endforelse
 
+@foreach($addresses as $address)
 <div class="container">
     <div class="row">
         <div class="col-md-8 border" style="margin-top:60px">
@@ -194,7 +193,7 @@ Checkout
                 <div class="card-title mt-4">
                     <h4 class="font-weight-bold">Shipping address</h4>
                     <label for="address-shipping">  
-                        <input class="mr-1 mt-3" type="checkbox" name="check_info" id="checkbox">
+                        <input class="mr-1 mt-3" type="checkbox" name="checkbox" id="checkbox" checked>
                         Billing address is the same for shipping address
                     </label>
                 </div>
@@ -202,48 +201,51 @@ Checkout
                     <div class="row">
                         <div class="col">
                             <label for=""><h6>First name <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control check" value="{{ $address->first_name }}">
                         </div>
                         <div class="col">
                             <label for=""><h6>Last name <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control check" value="{{ $address->last_name }}">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label for=""><h6>Street Address <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control check" value="{{ $address->street_address }}">
                         </div>
                         <div class="col">
                             <label for=""><h6>Street Address 2</h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control check" value="{{ $address->street_address2 }}">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label for=""><h6>Country <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control check" value="{{ $address->country }}">
                         </div>
                         <div class="col">
                             <label for=""><h6>City <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control check" value="{{ $address->city }}">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label for=""><h6>State/Province <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control check" value="{{ $address->state_province }}">
                         </div>
                         <div class="col">
                             <label for=""><h6>Phone <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control check" value="{{ $address->phone_number }}">
                         </div>
                     </div>
-                </form>                  
+                </form>             
             </div>
         </div>
     </div>
 </div>
+@endforeach
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 border" style="margin-top:60px">
@@ -274,6 +276,10 @@ Checkout
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/mean.js') }}"></script>
 @endsection
 
 

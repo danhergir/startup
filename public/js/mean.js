@@ -36,6 +36,17 @@ $('.close-span').click(function(){
 });
 
 
-
+$('#checkbox').change(function() { 
+    if($('#checkbox').is(':checked')) {
+        $.each($('.check'),function(){
+            $(this).val($(this).attr('data-value'));
+        });
+    } else {
+        $.each($('.check'),function(){
+            $(this).attr('data-value',$(this).val());
+            $(this).val("");
+          });
+    }
+});
 
     
