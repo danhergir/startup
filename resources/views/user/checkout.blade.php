@@ -37,41 +37,41 @@ Checkout
                     <div class="row">
                         <div class="col">
                             <label for=""><h6>First name <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control" value="{{ $address->first_name }}">
+                            <input type="text" class="form-control checked" value="{{ $address->first_name }}" id="first_name">
                         </div>
                         <div class="col">
                             <label for=""><h6>Last name <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control" value="{{ $address->last_name }}">
+                            <input type="text" class="form-control checked" value="{{ $address->last_name }}" id="last_name">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label for=""><h6>Street Address <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control" value="{{ $address->street_address }}">
+                            <input type="text" class="form-control checked" value="{{ $address->street_address }}" id="street_address">
                         </div>
                         <div class="col">
                             <label for=""><h6>Street Address 2</h6></label>
-                            <input type="text" class="form-control" value="{{ $address->street_address2 }}">
+                            <input type="text" class="form-control checked" value="{{ $address->street_address2 }}" id="street_address2">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label for=""><h6>Country <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control" value="{{ $address->country }}">
+                            <input type="text" class="form-control checked" value="{{ $address->country }}" id="country">
                         </div>
                         <div class="col">
                             <label for=""><h6>City <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control" value="{{ $address->city }}">
+                            <input type="text" class="form-control checked" value="{{ $address->city }}" id="city">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label for=""><h6>State/Province <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control" value="{{ $address->state_province }}">
+                            <input type="text" class="form-control checked" value="{{ $address->state_province }}" id="state_province">
                         </div>
                         <div class="col">
                             <label for=""><h6>Phone <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control" value="{{ $address->phone_number }}">
+                            <input type="text" class="form-control checked" value="{{ $address->phone_number }}" id="phone">
                         </div>
                     </div>
                 </form>                  
@@ -116,41 +116,41 @@ Checkout
                     <div class="row">
                         <div class="col">
                             <label for=""><h6>First name <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control checked" id="first_name">
                         </div>
                         <div class="col">
                             <label for=""><h6>Last name <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control checked" id="last_name">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label for=""><h6>Street Address <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control checked" id="street_address">
                         </div>
                         <div class="col">
                             <label for=""><h6>Street Address 2</h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control checked" id="street_address2">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label for=""><h6>Country <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control checked" id="country">
                         </div>
                         <div class="col">
                             <label for=""><h6>City <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control checked" id="city">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label for=""><h6>State/Province <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control checked" id="state_province">
                         </div>
                         <div class="col">
                             <label for=""><h6>Phone <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control checked" id="phone">
                         </div>
                     </div>
                 </form>                  
@@ -185,65 +185,68 @@ Checkout
 </div>
 @endforelse
 
-@foreach($addresses as $address)
 <div class="container">
     <div class="row">
         <div class="col-md-8 border" style="margin-top:60px">
             <div class="col-md-10">
                 <div class="card-title mt-4">
                     <h4 class="font-weight-bold">Shipping address</h4>
-                    <label for="address-shipping">  
+                    <label for="address-shipping"> 
+                        @if(count($addresses) > 0)
                         <input class="mr-1 mt-3" type="checkbox" name="checkbox" id="checkbox" checked>
                         Billing address is the same for shipping address
+                        @else
+                        <input class="mr-1 mt-3" type="checkbox" name="checkbox" id="checkbox">
+                        Billing address is the same for shipping address 
+                        @endif
                     </label>
                 </div>
                 <form class="mt-4 mb-4 ml-4 ">
                     <div class="row">
                         <div class="col">
                             <label for=""><h6>First name <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control check" value="{{ $address->first_name }}">
+                            <input type="text" class="form-control check" id="check_first_name">
                         </div>
                         <div class="col">
                             <label for=""><h6>Last name <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control check" value="{{ $address->last_name }}">
+                            <input type="text" class="form-control check" id="check_last_name">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label for=""><h6>Street Address <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control check" value="{{ $address->street_address }}">
+                            <input type="text" class="form-control check" id="check_street_address">
                         </div>
                         <div class="col">
                             <label for=""><h6>Street Address 2</h6></label>
-                            <input type="text" class="form-control check" value="{{ $address->street_address2 }}">
+                            <input type="text" class="form-control check" id="check_street_address2">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label for=""><h6>Country <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control check" value="{{ $address->country }}">
+                            <input type="text" class="form-control check" id="check_country">
                         </div>
                         <div class="col">
                             <label for=""><h6>City <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control check" value="{{ $address->city }}">
+                            <input type="text" class="form-control check" id="check_city">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label for=""><h6>State/Province <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control check" value="{{ $address->state_province }}">
+                            <input type="text" class="form-control check" id="check_state_province">
                         </div>
                         <div class="col">
                             <label for=""><h6>Phone <span class="text-danger">*</span></h6></label>
-                            <input type="text" class="form-control check" value="{{ $address->phone_number }}">
+                            <input type="text" class="form-control check" id="check_phone">
                         </div>
                     </div>
-                </form>             
+                </form>                  
             </div>
         </div>
     </div>
 </div>
-@endforeach
 
 
 <div class="container">
