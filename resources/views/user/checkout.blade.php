@@ -33,7 +33,7 @@ Checkout
                 <div class="card-title mt-4">
                     <h4 class="font-weight-bold">Billing address</h4>
                 </div>
-                <form class="mt-4 mb-4 ml-4 ">
+                <form class="mt-4 mb-4 ml-4 checked-form">
                     <div class="row">
                         <div class="col">
                             <label for=""><h6>First name <span class="text-danger">*</span></h6></label>
@@ -112,7 +112,7 @@ Checkout
                 <div class="card-title mt-4">
                     <h4 class="font-weight-bold">Billing address</h4>
                 </div>
-                <form class="mt-4 mb-4 ml-4 ">
+                <form class="mt-4 mb-4 ml-4 checked-form">
                     <div class="row">
                         <div class="col">
                             <label for=""><h6>First name <span class="text-danger">*</span></h6></label>
@@ -201,7 +201,7 @@ Checkout
                         @endif
                     </label>
                 </div>
-                <form class="mt-4 mb-4 ml-4 ">
+                <form class="mt-4 mb-4 ml-4 checked-form">
                     <div class="row">
                         <div class="col">
                             <label for=""><h6>First name <span class="text-danger">*</span></h6></label>
