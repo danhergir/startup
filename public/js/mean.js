@@ -41,8 +41,8 @@ $('.checked').keydown(function() {
 });
 
 if($('#checkbox').is(':checked')) {
-    $(".mt-4.mb-4.ml-4:eq(0) .row").each(function(i,r){
-        $(".mt-4.mb-4.ml-4:eq(1) .row:eq("+$(r).index()+") input").val(function(I){return $(r).find(".col:eq("+$(this).parent().index()+")>input").val();});
+    $(".checked-form:eq(0) .row").each(function(i,r) {
+        $(".checked-form:eq(1) .row:eq("+$(r).index()+") input").val(function(I){return $(r).find(".col:eq("+$(this).parent().index()+")>input").val();});
     });
 }
 

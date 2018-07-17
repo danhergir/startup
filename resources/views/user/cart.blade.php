@@ -130,9 +130,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="button-checkout mt-3 pr-4">
-                    <button class="btn btn-primary w-100 text-center" style="border-radius:20px">Checkout</button>
-                </div>
             </div>
         </div>
     </div>
