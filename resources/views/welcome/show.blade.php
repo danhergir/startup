@@ -237,7 +237,7 @@ Brand
                     </div>
                     <div class="body-text pt-3">
                         @if(Auth()->check())
-                            <a href="#" class="mr-2 like"><i class="far fa-thumbs-up"></i></a>{{ $review->getLikes() }}
+                            <a href="#" class="mr-2"><i class="far fa-thumbs-up"></i></a>{{ $review->getLikes() }}
                             <a href="#" class="mr-2 ml-4 dislike"><i class="far fa-thumbs-down"></i><a>{{ $review->getDislikes() }}
                         @else
                         <div class="container">

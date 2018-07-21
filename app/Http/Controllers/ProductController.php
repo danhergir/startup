@@ -38,7 +38,9 @@ class ProductController extends Controller
         $oldSaveLater = Session::get('saveLater');
         $saveLater = new SaveLater($oldSaveLater);
         $articles = $saveLater->articles;
-        
+
+
+
         return view('user.cart', ['cart' => $cart, 'products' => $products, 'articles' => $articles]);
     }
 
@@ -49,11 +51,25 @@ class ProductController extends Controller
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->add($product, $id, $qty);
-
         $request->session()->put('cart', $cart);
         
         return redirect()->route('user.cart');
     }
+
+public function cartUpdate(Request $request, $id) {
+    $oldCart = Session::has('cart') ? Session::get('cart') : null;
+    $cart = new Cart($oldCart);
+    $quantity = $request->quantity;
+    $product = Product::find($id);
+
+
+    $cart->updateItem($product, $id, $quantity);
+
+    Session::put('cart', $cart);
+
+    return response()->json(['success' => true]);
+
+}
 
     public function removeItem(Request $request)
     {
@@ -141,6 +157,14 @@ class ProductController extends Controller
         $user = Auth::user();
         $addresses = $user->addresses;
 
-        return view('user.checkout', ['addresses' => $addresses]);
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $products = $cart->items;
+
+        if($oldCart == null) {
+            return redirect()->back();
+        }
+
+        return view('user.checkout', ['addresses' => $addresses, 'cart' => $cart, 'products' => $products]);
     }
 }

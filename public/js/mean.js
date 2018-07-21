@@ -35,7 +35,7 @@ $('.close-span').click(function(){
     $(this).closest(".body-text").find('.auth-message').hide();
 });
 
-
+//It's associated to check button of the checkout.
 $('.checked').keydown(function() {
     $('#checkbox').prop('checked', false)
 });
@@ -55,5 +55,10 @@ $('#checkbox').change(function() {
         $('.check').val('');
     }
 })
+
+//Button for redirecting the cart to checkout
+$('#checkout-button').click(function(){
+    window.location.href = urlCheckout;
+ })
 
 

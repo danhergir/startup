@@ -41,6 +41,5 @@ class ProductReviewController extends Controller
             $like->save();
         }
         return null;
-        
     }
 }

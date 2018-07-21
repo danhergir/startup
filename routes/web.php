@@ -43,6 +43,11 @@ Route::post('/product/cart/remove', [
     'as' => 'user.removeItem'
 ]);
 
+Route::patch('/product/cart/{product}', [
+    'uses' => 'ProductController@cartUpdate',
+    'as' => 'cart.update'
+]);
+
 //User Save for later
 Route::post('/product/cart/save-later', [
     'uses' => 'ProductController@addSaveLater',

@@ -24,31 +24,17 @@
                                 <img class="card-img-top img-fluid" style="padding:10px" src="{{ $product['item']->imageUrl }}" alt="Card image cap"></a>
                             </div>
                             <div class="card-body mt-4">
-                                <a href="{{ route('welcome.show', ['product' => $product['item']->id] ) }}" class="text-dark"><h5>{{ $product['item']->title }}</h5></a>
-                                <h6 class="mt-2">Qty:</h6>
-                                <p>
-                                    <select name="quantity" id="quantity">
-                                        <option value="#">{{$product['qty']}}</option>
-                                    </select>
-                                </p>
-                                <!-- Select quantity
-                                <p>
-                                    <select name="quantity" id="quantity">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                    </select>
-                                </p>
-                                -->
+                                <div class="product-id" data-productid="{{ $product['item']->id }}">
+                                    <a href="{{ route('welcome.show', ['product' => $product['item']->id] ) }}" class="text-dark"><h5>{{ $product['item']->title }}</h5></a>
+                                    <h5 class="mt-2">Qty:</h5>
+                                    <p>
+                                        <select class="quantity" data-id="{{ $product['item']->id }}" data-productQuantity="">
+                                            @for ($i = 1; $i < 12 + 1 ; $i++)
+                                                <option {{ $product['qty'] == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                            @endfor
+                                        </select>
+                                    </p>
+                                </div>
                                 <div class="form-buttons d-inline-flex">
                                     <form method="POST" action="{{ route('user.removeItem') }}" id="item-remove">
                                         {{ csrf_field() }}
@@ -89,7 +75,7 @@
                     </div>
                 </div>
                 <div class="button-checkout mt-3 pr-4">
-                    <button class="btn btn-primary w-100 text-center" style="border-radius:20px">Checkout</button>
+                    <button class="btn btn-primary w-100 text-center" id="checkout-button" style="border-radius:20px">Checkout</button>
                 </div>
             </div>
         </div>
@@ -155,28 +141,8 @@
                                 </div>
                                 <div class="card-body mt-4">
                                     <a href="#" class="text-dark"><h5>{{ $item->title }}</h5></a>
-                                    <h6 class="mt-2">Qty</h6>
-                                    <p>
-                                        Number of items
-                                    </p>
-                                    <!-- Select quantity
-                                    <p>
-                                        <select name="quantity" id="quantity">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                        </select>
-                                    </p>
-                                    -->
+                                    <h5 class="mt-2">Qty:</h5>
+                                    <h6>{{ $product['qty'] }}</h6>
                                     <div class="form-buttons d-inline-flex">
                                         <form method="POST" action="{{ route('user.removeSaveLater') }}" id="remove">
                                             {{ csrf_field() }}
@@ -225,4 +191,29 @@
     </div>
 </div>
 @endif
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/mean.js') }}"></script>
+<script>
+(function () {
+    const classname = document.querySelectorAll('.quantity')
+
+    Array.from(classname).forEach(function(element) {
+        element.addEventListener('change', function() {
+            const id = element.getAttribute('data-id');
+            axios.patch( `/product/cart/${id}`, {
+                quantity: this.value
+            })
+            .then(function (response) {
+                //console.log(response);
+                window.location.href = '{{ route('user.cart') }}'
+            })
+            .catch(function (error) {
+                console.log(error.response);
+            });
+        })
+    })
+})();
+</script>
 @endsection

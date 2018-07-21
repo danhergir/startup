@@ -20,7 +20,7 @@ class Cart extends Model
         }
     }
 
-    public function add($item, $id, $quantity = 0)
+    public function add($item, $id, $qty)
     {
         $storedItem = ['qty' => 0, 'price' => $item->price, 'item' => $item];
         if ($this->items)
@@ -30,11 +30,22 @@ class Cart extends Model
                 $storedItem = $this->items[$id];
             }
         }
-        $storedItem['qty'] += $quantity;
+        $storedItem['qty'] += $qty;
         $storedItem['price'] = $item->price * $storedItem['qty'];
         $this->items[$id] = $storedItem;
-        $this->totalQty += $quantity;
-        $this->totalPrice += $item->price;
+        $this->totalQty += $qty;
+        $this->totalPrice = $item->price * $this->totalQty;
+    }
+
+      public function updateItem($item, $id, $quantity) {
+        $this->items[$id]['qty'] = $quantity;
+        $this->items[$id]['price'] = $quantity * $item->price;
+
+        $this->totalQty = 0;
+        foreach($this->items as $element) {
+            $this->totalQty += $element['qty'];
+            $this->totalPrice = $this->totalQty * $item->price;
+        }
     }
 
     public function removeItem($id)
