@@ -38,21 +38,14 @@ Brand
             <div class="product-sell product">
                 <form method="POST" action="{{ route('user.addCart') }}">
                     {{ csrf_field() }}
-                    <h6 class="text-muted">Qty :</h6>
-                    <select name="qty" id="qty" class="mr-2">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select>
+                    <h5 class="mt-2">Qty:</h5>
+                    <p>
+                        <select class="quantity" name="qty">
+                            @for ($i = 1; $i < 12 + 1 ; $i++)
+                                <option>{{ $i }}</option>
+                            @endfor
+                        </select>
+                    </p>
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <button type="submit" class="btn btn-primary" style="border-radius: 20px;" role="button">Add to <i class="fas fa-shopping-cart"></i></button>        
                 </form>

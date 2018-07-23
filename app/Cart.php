@@ -58,6 +58,7 @@ class Cart extends Model
     {
         $this->totalQty -= $this->items[$id]['qty'];
         $this->totalPrice -= $this->items[$id]['price'];
+        
         unset($this->items[$id]);
     }
 }

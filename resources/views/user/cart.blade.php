@@ -36,11 +36,7 @@
                                     </p>
                                 </div>
                                 <div class="form-buttons d-inline-flex">
-                                    <form method="POST" action="{{ route('user.removeItem') }}" id="item-remove">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" name="product_id" value="{{ $product['item']->id }}">
-                                        <a style="cursor:pointer" class="text-dark mr-2" onclick="document.getElementById('item-remove').submit();"><u>Remove</u></a>
-                                    </form>
+                                    <a class="text-dark mr-2" style="cursor:pointer"  href="{{ route('user.removeItem', ['id' => $product['item']->id]) }}"><u>Remove</u></a>
                                     |
                                     <form method="POST" action="{{ route('user.saveLater') }}" id="save-later">
                                         {{ csrf_field() }}
@@ -147,11 +143,7 @@
                                     <h5 class="mt-3">Qty: {{ $article['qty'] }}</h5>
                                 </div>
                                 <div class="form-buttons d-inline-flex mt-2">
-                                    <form method="POST" action="{{ route('user.removeSaveLater') }}" id="remove">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" name="product_id" value="{{ $article['item']->id }}">
-                                        <a style="cursor:pointer" class="text-dark mr-2" onclick="document.getElementById('remove').submit();"><u>Remove</u></a>
-                                    </form>
+                                    <a class="text-dark mr-2" style="cursor:pointer"  href="{{ route('user.removeSaveLater', ['id' => $article['item']->id]) }}"><u>Remove</u></a>
                                     |
                                     <form action="{{ route('user.moveCart') }}" id="moveCart">
                                         {{ csrf_field() }}

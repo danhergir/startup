@@ -38,7 +38,7 @@ Route::get('/product/cart/move-cart', [
     'as' => 'user.moveCart'
 ]);
 
-Route::post('/product/cart/remove', [
+Route::get('/product/cart/remove/{id}', [
     'uses' => 'ProductController@removeItem',
     'as' => 'user.removeItem'
 ]);
@@ -54,7 +54,7 @@ Route::post('/product/cart/save-later', [
     'as' => 'user.saveLater'
 ]);
 
-Route::post('/product/cart/save-later/remove', [
+Route::get('/product/cart/save-later/remove/{id}', [
     'uses' => 'ProductController@removeSaveLater',
     'as' => 'user.removeSaveLater'
 ]);

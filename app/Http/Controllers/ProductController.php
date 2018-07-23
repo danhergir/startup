@@ -20,8 +20,11 @@ class ProductController extends Controller
     }
 
     public function showOne(Product $product, ProductReview $productReview)
-    {
-        return view('welcome.show', ['product' => $product, 'productReview' => $productReview]);
+    {   
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $articles = $cart->items;
+        return view('welcome.show', ['articles' => $articles, 'product' => $product, 'productReview' => $productReview]);
     }
 
     public function createFormReview(Product $product) 
@@ -38,6 +41,7 @@ class ProductController extends Controller
         $oldSaveLater = Session::get('saveLater');
         $saveLater = new SaveLater($oldSaveLater);
         $articles = $saveLater->articles;
+
 
         return view('user.cart', ['cart' => $cart, 'products' => $products, 'articles' => $articles]);
     }
@@ -69,11 +73,10 @@ class ProductController extends Controller
 
     } 
 
-    public function removeItem(Request $request)
+    public function removeItem($id)
     {
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $id = request('product_id');
-        $cart = new Cart($oldCart); 
+        $cart = new Cart($oldCart);
         $cart->removeItem($id);
 
         if(count($cart->items) > 0)
@@ -111,9 +114,8 @@ class ProductController extends Controller
         return redirect()->route('user.cart');
     }
 
-    public function removeSaveLater(Request $request) {
+    public function removeSaveLater($id) {
         $oldSaveLater = Session::has('saveLater') ? Session::get('saveLater') : null;
-        $id = request('product_id');
         $saveLater = new SaveLater($oldSaveLater); 
         $saveLater->remove($id);
 
