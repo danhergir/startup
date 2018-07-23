@@ -156,7 +156,7 @@ class UserController extends Controller
             $wishlist->save();
         }
 
-        return redirect()->back();
+        return redirect()->route('user.lists');
     }
 
     public function deleteWishlist() {
