@@ -44,13 +44,14 @@
                                     |
                                     <form method="POST" action="{{ route('user.saveLater') }}" id="save-later">
                                         {{ csrf_field() }}
+                                        <input type="hidden" name="product_qty" value="{{ $product['qty'] }}">
                                         <input type="hidden" name="product_id" value="{{ $product['item']->id }}">
                                         <a style="cursor:pointer" class="text-dark ml-2" onclick="document.getElementById('save-later').submit();"><u>Save for later</u></a>
                                     </form>
                                 </div>
                             </div>
                             <div class="card-body mt-4 mr-4">
-                                <h5><strong>${{ $product['item']->price }}</strong></h5>
+                                <h5><strong>${{ $product['item']->price * $product['qty'] }}</strong></h5>
                             </div>
                         </div>
                     </div>
@@ -93,7 +94,7 @@
         <div class="col-md-8">
             <div class="card-body w-100 ml-3 mt-3" style="padding:0;">
                 <div class="row" style="margin-right:0px">
-                    <div class="card-title">
+                    <div class="card-header bg-white" style="border:none;">
                         <h5 class="text-muted">Your cart is empty!</h5>
                         <h5 class="text-muted">Add new things to your cart. <a href="{{ route('welcome.index') }}">Go on shopping now!</a></h5>
                     </div>
@@ -130,43 +131,44 @@
             </div>
         </div>
         <div class="col-md-8">
+            @foreach($articles as $article)
             <div class="card-body w-100 ml-3" style="padding:0;">
                 <div class="row" style="margin-right:0px">
-                @foreach($articles as $article['article'])
-                    @foreach($article['article'] as $item)
-                        <div class="card border-bottom border-right border-left" style="border-radius:0px">
-                            <div class="card-images d-inline-flex" style="width:745px">
-                                <div class="card mr-4" style="width:200px">
-                                    <img class="card-img-top img-fluid" style="padding:10px" src="{{ $item->imageUrl }}" alt="Card image cap"></a>
+                    <div class="card border-bottom border-right border-left" style="border-radius:0px">
+                        <div class="card-images d-inline-flex" style="width:745px">
+                            <div class="card mr-4" style="width:200px">
+                                <img class="card-img-top img-fluid" style="padding:10px" src="{{ $article['item']->imageUrl }}" alt="Card image cap"></a>
+                            </div>
+                            <div class="card-body mt-4">
+                                <div class="item-title">
+                                    <a href="#" class="text-dark"><h5>{{ $article['item']->title }}</h5></a>
                                 </div>
-                                <div class="card-body mt-4">
-                                    <a href="#" class="text-dark"><h5>{{ $item->title }}</h5></a>
-                                    <h5 class="mt-2">Qty:</h5>
-                                    <h6>{{ $product['qty'] }}</h6>
-                                    <div class="form-buttons d-inline-flex">
-                                        <form method="POST" action="{{ route('user.removeSaveLater') }}" id="remove">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="product_id" value="{{ $item->id }}">
-                                            <a style="cursor:pointer" class="text-dark mr-2" onclick="document.getElementById('remove').submit();"><u>Remove</u></a>
-                                        </form>
-                                        |
-                                        <form action="{{ route('user.moveCart') }}" id="moveCart">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="qty" value="1">
-                                            <input type="hidden" name="product_id" value="{{ $item->id }}">
-                                            <a style="cursor:pointer" class="text-dark ml-2" onclick="document.getElementById('moveCart').submit();"><u>Move to cart</u></a>
-                                        </form>
-                                    </div>
+                                <div class="product-quantity">
+                                    <h5 class="mt-3">Qty: {{ $article['qty'] }}</h5>
                                 </div>
-                                <div class="card-body mt-4 mr-4">
-                                    <h5><strong>${{ $item->price }}</strong></h5>
+                                <div class="form-buttons d-inline-flex mt-2">
+                                    <form method="POST" action="{{ route('user.removeSaveLater') }}" id="remove">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="product_id" value="{{ $article['item']->id }}">
+                                        <a style="cursor:pointer" class="text-dark mr-2" onclick="document.getElementById('remove').submit();"><u>Remove</u></a>
+                                    </form>
+                                    |
+                                    <form action="{{ route('user.moveCart') }}" id="moveCart">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="qty" value="{{ $article['qty'] }}">
+                                        <input type="hidden" name="product_id" value="{{ $article['item']->id }}">
+                                        <a style="cursor:pointer" class="text-dark ml-2" onclick="document.getElementById('moveCart').submit();"><u>Move to cart</u></a>
+                                    </form>
                                 </div>
                             </div>
+                            <div class="card-body mt-4 mr-4">
+                                <h5><strong>${{ $article['item']->price * $article['qty']}}</strong></h5>
+                            </div>
                         </div>
-                    @endforeach
-                @endforeach
+                    </div>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -182,7 +184,7 @@
         <div class="col-md-8">
             <div class="card-body w-100 ml-3 mt-3" style="padding:0;">
                 <div class="row" style="margin-right:0px">
-                    <div class="card-title">
+                    <div class="card-header bg-white" style="border:none">
                         <h5 class="text-muted">You have no items saved for later!</h5>
                     </div>
                 </div>

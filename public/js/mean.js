@@ -58,7 +58,5 @@ $('#checkbox').change(function() {
 
 //Button for redirecting the cart to checkout
 $('#checkout-button').click(function(){
-    window.location.href = urlCheckout;
+    window.location.href = '/user/checkout';
  })
-
-

@@ -39,8 +39,6 @@ class ProductController extends Controller
         $saveLater = new SaveLater($oldSaveLater);
         $articles = $saveLater->articles;
 
-
-
         return view('user.cart', ['cart' => $cart, 'products' => $products, 'articles' => $articles]);
     }
 
@@ -56,20 +54,20 @@ class ProductController extends Controller
         return redirect()->route('user.cart');
     }
 
-public function cartUpdate(Request $request, $id) {
-    $oldCart = Session::has('cart') ? Session::get('cart') : null;
-    $cart = new Cart($oldCart);
-    $quantity = $request->quantity;
-    $product = Product::find($id);
+    public function cartUpdate(Request $request, $id) {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $quantity = request('quantity');
+        $product = Product::find($id);
 
 
-    $cart->updateItem($product, $id, $quantity);
+        $cart->updateItem($product, $id, $quantity);
 
-    Session::put('cart', $cart);
+        Session::put('cart', $cart);
 
-    return response()->json(['success' => true]);
+        return response()->json(['success' => true]);
 
-}
+    } 
 
     public function removeItem(Request $request)
     {
@@ -92,9 +90,10 @@ public function cartUpdate(Request $request, $id) {
     public function addSaveLater(Request $request) {
         $id = request('product_id');
         $product = Product::find($id);
+        $qty = request('product_qty');
         $oldSaveLater = Session::has('saveLater') ? Session::get('saveLater') : null;
         $saveLater = new SaveLater($oldSaveLater);
-        $saveLater->add($product, $id);
+        $saveLater->add($product, $id, $qty);
 
         $request->session()->put('saveLater', $saveLater);
 

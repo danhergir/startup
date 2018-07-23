@@ -36,7 +36,7 @@ Brand
             <h6 style="font-weight:bold" class="pt-2">Free 2-day shipping </h6>
             <hr>
             <div class="product-sell product">
-                <form action="{{ route('user.addCart') }}">
+                <form method="POST" action="{{ route('user.addCart') }}">
                     {{ csrf_field() }}
                     <h6 class="text-muted">Qty :</h6>
                     <select name="qty" id="qty" class="mr-2">

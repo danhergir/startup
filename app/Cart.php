@@ -30,11 +30,17 @@ class Cart extends Model
                 $storedItem = $this->items[$id];
             }
         }
-        $storedItem['qty'] += $qty;
-        $storedItem['price'] = $item->price * $storedItem['qty'];
+
+        $storedItem['qty'] = $qty;
+        $storedItem['price'] = $item->price * $qty;
         $this->items[$id] = $storedItem;
-        $this->totalQty += $qty;
-        $this->totalPrice = $item->price * $this->totalQty;
+
+        $this->totalQty = 0;
+        foreach($this->items as $element) {
+            $this->totalQty += $element['qty'];
+            $this->totalPrice = $this->totalQty * $item->price;
+        }
+
     }
 
       public function updateItem($item, $id, $quantity) {

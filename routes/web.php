@@ -28,7 +28,7 @@ Route::get('/user/cart' , [
     'as' => 'user.cart'
 ]);
 
-Route::get('/product/cart', [
+Route::post('/product/cart', [
     'uses' => 'ProductController@addCart',
     'as' => 'user.addCart'
 ]);
