@@ -100,7 +100,7 @@
         <div class="col-md-4 border-left">
             <div class="card-body w-100 ml-3 mt-3" style="padding:0;">
                 <div class="row" style="margin-right:0px">
-                    <div class="card-checkout d-inline-flex w-100 border-bottom">
+                    <div class="card-checkout d-inline-flex w-100 ">
                         <div class="card mt-4 mr-4">
                             <h6>Subtotal (0 items)</h6>
                             <h6>Shipping</h6>

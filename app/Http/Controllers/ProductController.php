@@ -24,7 +24,14 @@ class ProductController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $articles = $cart->items;
-        return view('welcome.show', ['articles' => $articles, 'product' => $product, 'productReview' => $productReview]);
+        if($articles) {
+            foreach($articles as $article) {
+                if($article['item']->id == $product->id) {
+                    return view('welcome.show', ['article' => $article, 'product' => $product, 'productReview' => $productReview]);
+                }
+            }
+        }
+        return view('welcome.show', ['product' => $product, 'productReview' => $productReview]);
     }
 
     public function createFormReview(Product $product) 

@@ -40,11 +40,19 @@ Brand
                     {{ csrf_field() }}
                     <h5 class="mt-2">Qty:</h5>
                     <p>
-                        <select class="quantity" name="qty">
-                            @for ($i = 1; $i < 12 + 1 ; $i++)
+                        @if(empty($article))
+                            <select class="quantity" name="qty">
+                                @for ($i = 1; $i < 12 + 1 ; $i++)
                                 <option>{{ $i }}</option>
-                            @endfor
-                        </select>
+                                @endfor
+                            </select>
+                        @else
+                            <select class="quantity" name="qty">
+                                @for ($i = 1; $i < 12 + 1 ; $i++)
+                                <option {{ $article['qty'] == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                @endfor
+                            </select>
+                        @endif
                     </p>
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <button type="submit" class="btn btn-primary" style="border-radius: 20px;" role="button">Add to <i class="fas fa-shopping-cart"></i></button>        
