@@ -82,11 +82,11 @@ Checkout
                 <div class="row" style="margin-right:0px">
                     <div class="card-checkout d-inline-flex w-100">
                         <div class="card mt-4 mr-4">
-                            <h6>Subtotal (0 items)</h6>
+                            <h6>Subtotal ({{ $cart->totalQty}} items)</h6>
                             <h6>Shipping</h6>
                         </div>
                         <div class="card mt-4 ml-4">
-                            <h6>$0.00</h6>
+                            <h6>${{ $cart->totalPrice}}</h6>
                             <h6>Free</h6>
                         </div>
                     </div>
@@ -96,7 +96,7 @@ Checkout
                         <hr class="mr-4">
                         <div class="d-inline-flex w-100">
                             <h4 class="mr-5">Est. total</h4>
-                            <h4 class="font-weight-bold ml-5">$0.00</h4>
+                            <h4 class="font-weight-bold ml-5">${{ $cart->totalPrice}}</h4>
                         </div>
                     </div>
                 </div>
@@ -270,11 +270,35 @@ Checkout
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8 border" style="margin-top:60px">
+        <div class="col-md-8 border" style="margin-top:60px;">
             <div class="col-md-10">
                 <div class="card-title mt-4">
                     <h4 class="font-weight-bold">Review your order</h4>
                 </div>
+                @foreach($articles as $article)
+                <div class="card-body w-100 ml-3" style="padding:0;">
+                    <div class="row" style="margin-right:0px">
+                        <div class="card" style="border-radius:0px">
+                            <div class="card-images d-inline-flex" style="width:745px">
+                                <div class="card mr-4" style="width:200px">
+                                    <img class="card-img-top img-fluid" style="padding:10px" src="{{ $article['item']->imageUrl }}" alt="Card image cap"></a>
+                                </div>
+                                <div class="card-body mt-4">
+                                    <div class="item-title">
+                                        <a href="{{ route('welcome.show', ['product' => $article['item']->id ]) }}" class="text-dark"><h5>{{ $article['item']->title }}</h5></a>
+                                    </div>
+                                    <div class="product-quantity">
+                                        <h5 class="mt-3">Qty: {{ $article['qty'] }}</h5>
+                                    </div>
+                                </div>
+                                <div class="card-body mt-4 mr-4">
+                                    <h5><strong>${{ $article['item']->price * $article['qty']}}</strong></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
             </div>
         </div>
     </div>

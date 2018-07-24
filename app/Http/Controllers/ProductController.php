@@ -167,12 +167,12 @@ class ProductController extends Controller
 
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        $products = $cart->items;
-
+        $articles = $cart->items;
+        
         if($oldCart == null) {
             return redirect()->back();
         }
 
-        return view('user.checkout', ['addresses' => $addresses, 'cart' => $cart, 'products' => $products]);
+        return view('user.checkout', ['addresses' => $addresses, 'cart' => $cart, 'articles' => $articles]);
     }
 }

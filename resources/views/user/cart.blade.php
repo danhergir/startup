@@ -137,7 +137,7 @@
                             </div>
                             <div class="card-body mt-4">
                                 <div class="item-title">
-                                    <a href="#" class="text-dark"><h5>{{ $article['item']->title }}</h5></a>
+                                    <a href="{{ route('welcome.show', ['product' => $article['item']->id ]) }}" class="text-dark"><h5>{{ $article['item']->title }}</h5></a>
                                 </div>
                                 <div class="product-quantity">
                                     <h5 class="mt-3">Qty: {{ $article['qty'] }}</h5>
