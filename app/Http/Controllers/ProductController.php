@@ -205,4 +205,4 @@ class ProductController extends Controller
         
         return view('user.checkout', ['addresses' => $addresses, 'cart' => $cart, 'articles' => $articles, 'url_payment' => $url_payment]);
     }
-
+}
