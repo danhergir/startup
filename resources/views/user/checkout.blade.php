@@ -103,6 +103,11 @@ Checkout
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="button-checkout pr-4 payment-checkout">
+            <a target="_blank" href="{{ url($url_payment) }}" class="btn btn-primary w-100 text-center text-white" id="checkout-button" style="border-radius:20px">Pay now</a>
+        </div>
+    </div>
 </div>
 @empty
 <div class="container">

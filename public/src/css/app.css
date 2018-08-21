@@ -85,4 +85,12 @@ button:focus {outline:0 !important;}
     top:60px;
     left:915px;
 }
-  
+
+.payment-checkout {
+    margin-top:30px; 
+    height:38px;
+    position:fixed;
+    top:300px;
+    width:324px;
+    left:1000px;
+}

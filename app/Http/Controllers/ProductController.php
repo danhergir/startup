@@ -9,6 +9,7 @@ use App\ProductReview;
 use App\User;
 use App\Cart;
 use App\SaveLater;
+use Coingate\Coingate;
 use Session;
 
 class ProductController extends Controller
@@ -171,8 +172,37 @@ class ProductController extends Controller
         
         if($oldCart == null) {
             return redirect()->back();
-        }
+        }   
 
-        return view('user.checkout', ['addresses' => $addresses, 'cart' => $cart, 'articles' => $articles]);
+        //Coingate API Service    
+
+        \CoinGate\CoinGate::config(array(
+            'environment'               => 'sandbox', // sandbox OR live
+            'auth_token'                => env('COINGATE_AUTH'),
+            'curlopt_ssl_verifypeer'    => TRUE // default is false
+        ));
+
+        $post_params = array(
+            'order_id'          => '001',
+            'price_amount'      => $cart->totalPrice,
+            'price_currency'    => 'USD',
+            'receive_currency'  => 'USD',
+            'callback_url'      => 'https://localhost::8000',
+            'cancel_url'        => 'https://localhost::8000',
+            'success_url'       => 'https://localhost::8000',
+            'title'             => 'Order #001',
+            'description'       => 'Xbox One Controller'
+        );
+
+        $order = \CoinGate\Merchant\Order::create($post_params);
+
+        if ($order) {
+        
+        $url_payment = $order->payment_url;
+        } else {
+        # Order Is Not Valid
+        }
+        
+        return view('user.checkout', ['addresses' => $addresses, 'cart' => $cart, 'articles' => $articles, 'url_payment' => $url_payment]);
     }
-}
+
